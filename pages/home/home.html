@@ -5,11 +5,21 @@
         }
     </style>
     
-    <h2>POI</h2>
+    
     
     <!-- display all cities -->
-    <p ng-repeat="(id, city) in poiCtrl.cities">
+    <div class= "popularPOI" align="center">
+
+        <br/>
+        <br/>
+        <h2>POI</h2>
+
+        
+        <h1 ng-repeat="x in records">{{records}}</h1>
+
+    </div>
+    <!-- <p ng-repeat="(id, city) in poiCtrl.cities">
         City Name: <span ng-bind="city.name"></span><br>
         City State: <span ng-bind="city.state"></span><br>
         <img ng-src="{{ city.image }}">
-    </p>
+    </p> -->
