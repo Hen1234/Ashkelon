@@ -1,0 +1,61 @@
+<div ng-controller="registerController as regCtrl">
+    <form name="registerForm" ng-submit="submit()" novalidate>
+   
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <b>User Name:</b> 
+        <input type="text" id= "uname" name="uname" ng-model="uname" required ng-minlength="3"> 
+        <span ng-show="loginForm.uname.$error.required">This is required! </span>
+        <span ng-show="loginForm.uname.$error.minlength">Minimum length is 3 </span>
+        <span ng-show="loginForm.uname.$error.maxlength">Maximum length is 8 </span>
+        <span ng-show="loginForm.uname.$invalid">Invalid field</span><br><br>
+        <b>Password:</b> 
+        <input type="text" id= "password" name="password" ng-model="password" required ng-minlength="5"> 
+        <span ng-show="loginForm.password.$error.required">This is required! </span>
+        <span ng-show="loginForm.password.$error.minlength">Minimum length is 5 </span>
+        <span ng-show="loginForm.password.$error.maxlength">Maximum length is 10 </span>
+        <span ng-show="loginForm.password.$invalid">Invalid field</span><br><br>
+        <b>First name:</b> 
+        <input type="text" id= "fname" name="fname" ng-model="fname" >
+        <br/>
+        <br/>
+        <b>Last name:</b> 
+        <input type="text" id= "lname" name="lname" ng-model="lname" >
+        <br/>
+        <br/>
+        <b>City:</b> 
+        <input type="text" id= "city" name="city" ng-model="city" >
+        <br/>
+        <br/>
+        <b>Country:</b> 
+        <input type="text" id= "country" name="country" ng-model="country" >
+        <br/>
+        <br/>
+        <b>Email:</b> 
+        <input type="text" id= "email" name="email" ng-model="email" >
+        <br/>
+        <br/>
+        <b>First interest:</b> 
+        <input type="text" id= "finterest" name="finterest" ng-model="finterest" >
+        <br/>
+        <br/>
+        <b>Second interest:</b> 
+        <input type="text" id= "sinterest" name="sinterest" ng-model="sinterest" >
+
+
+
+
+
+        <br/>
+        <br/>
+        <input ng-disabled="registerForm.$invalid" type="submit" id="submit" value="Submit">
+    </form>
+
+    <p>{{ answer }} </p>
+    
+    <p>{{ records }}</p>
+
+
+</div>
