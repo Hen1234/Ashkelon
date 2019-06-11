@@ -6,17 +6,17 @@
         <br/>
         <br/>
         <b>User Name:</b> 
-        <input type="text" id= "uname" name="uname" ng-model="uname" required ng-minlength="3"> 
-        <span ng-show="loginForm.uname.$error.required">This is required! </span>
-        <span ng-show="loginForm.uname.$error.minlength">Minimum length is 3 </span>
-        <span ng-show="loginForm.uname.$error.maxlength">Maximum length is 8 </span>
-        <span ng-show="loginForm.uname.$invalid">Invalid field</span><br><br>
+        <input type="text" id= "uname" name="uname" ng-model="uname" required ng-minlength="3" ng-maxlenth="8"> 
+        <span ng-show="registerForm.uname.$error.required" class="ng-hide">This is required! </span>
+        <span ng-show="registerForm.uname.$error.minlength">Minimum length is 3 </span>
+        <span ng-show="registerForm.uname.$error.maxlength">Maximum length is 8 </span>
+        <span ng-show="registerForm.uname.$invalid"class="ng-hide">Invalid field</span><br><br>
         <b>Password:</b> 
-        <input type="text" id= "password" name="password" ng-model="password" required ng-minlength="5"> 
-        <span ng-show="loginForm.password.$error.required">This is required! </span>
-        <span ng-show="loginForm.password.$error.minlength">Minimum length is 5 </span>
-        <span ng-show="loginForm.password.$error.maxlength">Maximum length is 10 </span>
-        <span ng-show="loginForm.password.$invalid">Invalid field</span><br><br>
+        <input type="text" id= "password" name="password" ng-model="password" required ng-minlength="5" ng-maxlenth="10"> 
+        <span ng-show="registerForm.password.$error.required"class="ng-hide">This is required! </span>
+        <span ng-show="registerForm.password.$error.minlength">Minimum length is 5 </span>
+        <span ng-show="registerForm.password.$error.maxlength">Maximum length is 10 </span>
+        <span ng-show="registerForm.password.$invalid">Invalid field</span><br><br>
         <b>First name:</b> 
         <input type="text" id= "fname" name="fname" ng-model="fname" >
         <br/>
@@ -34,14 +34,18 @@
         <br/>
         <br/>
         <b>Email:</b> 
-        <input type="text" id= "email" name="email" ng-model="email" >
+        <input type="text" id= "email" name="email" ng-model="email" ng-pattern="regexEmail" >
         <br/>
+        <br/>                  
+        <span style="color:red" ng-show="registerForm.email.$invalid" class="ng-hide">   
+        Please Enter Valid  Name.!  
+        </span>  
         <br/>
         <b>First interest:</b> 
         <select id='selectId'>
-            <option id= "value1" >Option 1</option>
-            <option value='2' selected='selected'>Option 2</option>
-            <option value='3'>Option 3</option>
+            <option ng-repeat = "y in options" >{{y.category}}</option>
+            <!-- <option value='2' selected='selected'>Option 2</option> -->
+
             </select>
        
         <br/>

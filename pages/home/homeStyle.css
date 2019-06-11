@@ -1,0 +1,22 @@
+#images{
+
+    border : 1px solid red;
+    
+}
+.single-img{
+    display: inline-block;
+    padding: 20px;
+    border : 1px solid green;
+   
+}
+.curr-img{
+    height: 100px;
+    width: 100px;
+}
+
+#myModal{
+    /* display: none; */
+}
+
+
+

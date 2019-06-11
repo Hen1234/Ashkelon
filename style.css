@@ -4,7 +4,6 @@
     background-color: #FFF2E0; } */
   body 
 {
-   
     background-image: url("background.jpg");
 	background-size: 100% 100%;
 	size: 30%;
@@ -16,6 +15,7 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(247, 211, 144);
    /*  border: solid green; */
+   border : 1px solid blue;
 }
 
     .topnav a 
@@ -44,3 +44,8 @@
     {
         float: right;
     }
+
+    /* #images{
+        border : 1px solid red;
+    } */
+    
