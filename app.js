@@ -6,7 +6,14 @@ app.config(function($routeProvider)  {
         // homepage
         .when('/', {
             // this is a template
-            template: '<h1></h1>'
+            templateUrl: 'pages/home/home.html',
+            controller : 'homeController as homeCtrl'
+        })
+        //homeFromMenu
+        .when('/home', {
+            // this is a template
+            templateUrl: 'pages/home/home.html',
+            controller : 'homeController as homeCtrl'
         })
         // about
         .when('/about', {

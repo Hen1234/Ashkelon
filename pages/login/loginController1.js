@@ -48,16 +48,13 @@ angular.module("myApp")
                             // password: "123"
                             "username": username,
                             "password":pass
-                        }
-            
-            
+                        }           
                     }).then(function (response) {
                         $scope.records = response.data;
                         console.log(response.data);
                     }, function(response) {
                         $scope.records = response.statusText;
                     });
-
       //  $scope.answer = "Submitted! you entered: " + $scope.uname
     };
 
