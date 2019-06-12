@@ -33,7 +33,7 @@ app.config(function($routeProvider)  {
 
         .when('/login', {
             templateUrl: 'pages/login/login.html',
-            controller : 'loginController1 as loginCtrl'
+            controller : 'loginController as loginCtrl'
         })
 
         .when('/register', {
