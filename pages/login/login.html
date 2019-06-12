@@ -24,12 +24,19 @@
             <br/>
             <input ng-disabled="loginForm.$invalid" type="submit" id="submit" value="Submit">
         </form>
+        <div id= retrievePass >
+                <br/>
+                <br/>
+                <b>Forgot password? Press here:</b>
+                <button type= "button" id="retrievePassButton" ng-click="retrievePassFunc()" >Retrieve password</button>
+                <p> {{verifyQuestion}}</p>
 
-        <p>{{ answer }} </p>
-        
+
+        </div>
+
+     
         <p>{{ records }}</p>
+        
 
 
     </div>
-
-<p>{{ records }}</p>

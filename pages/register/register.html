@@ -42,25 +42,41 @@
         </span>  
         <br/>
         <b>First interest:</b> 
-        <select id='selectId'>
+        <select id='fInterest'>
             <option ng-repeat = "y in options" >{{y.category}}</option>
-            <!-- <option value='2' selected='selected'>Option 2</option> -->
-
-            </select>
-       
+        </select>
         <br/>
         <br/>
         <b>Second interest:</b> 
-        <input type="text" id= "sinterest" name="sinterest" ng-model="sinterest" >
-
+        <select id='sInterest'>
+            <option ng-repeat = "y in options" >{{y.category}}</option>
+        </select>
+        <br/>
+        <br/>
+        <b>Verification Question 1:</b> 
+        <select id='fQuestion'>
+            <option ng-repeat = "z in questions" >{{z.verificationQuestion}}</option>
+        </select>
+        <br/>
+        <br/>
+        <b>Answer 1:</b> 
+        <input type="text" id= "answer1" name="answer1" ng-model="answer1" >
+        <br/>
+        <br/>
+        <b>Verification Question 2:</b> 
+        <select id='sQuestion'>
+            <option ng-repeat = "z in questions" >{{z.verificationQuestion}}</option>
+        </select>
+        <br/>
+        <br/>
+        <b>Answer 2:</b> 
+        <input type="text" id= "answer2" name="answer2" ng-model="answer2" >
         <br/>
         <br/>
         <input ng-disabled="registerForm.$invalid" type="submit" id="submit" value="Submit">
     </form>
 
     <p>{{ answer }} </p>
-    
-    <p>{{ records }}</p>
 
 
 </div>

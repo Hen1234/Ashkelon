@@ -1,16 +1,19 @@
 
 // login controller
 angular.module("myApp")
-.controller("loginController", function ($scope, $http, $window, myService) {
+.controller("loginController", function ($scope, $window, myService) {
+    var username = uname.value;
+    console.log(username);
+    var pass = password.value;
+    console.log(pass);
+    let key = 'token';
+
     $scope.submit = function(){
 
-        var username = uname.value;
-        console.log(username);
-        var pass = password.value;
-        console.log(pass);
-        let key = 'token';
+      
         
         myService.login(username,pass).then(function(response){
+            $scope.records = response.data;
             $window.sessionStorage.setItem(key,response.data); 
             console.log("tokennn= "+$window.sessionStorage.getItem(key));
         
@@ -58,6 +61,16 @@ angular.module("myApp")
 
     };
 
-    
+    $scope.retrievePassFunc = function(){
+        
+        var username1 = uname.value;
+        myService.retrievePass(username1).then(function(response){
+            $scope.verifyQuestion = response.data;
+
+        }, function(response) {
+            $scope.verifyQuestion = response.statusText;
+        });
+
+    }  
 
 });
