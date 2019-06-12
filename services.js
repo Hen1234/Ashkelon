@@ -4,6 +4,7 @@ angular.module("myApp").service('myService', function($http){
     console.log("Service created");
     this.login = function(username, pass){
 
+        console.log("userrrrr= "+username);
         console.log("function was called");
         return   $http({
             method:'POST',
@@ -11,7 +12,8 @@ angular.module("myApp").service('myService', function($http){
             data: {
                 "username": username,
                 "password":pass
-            }           
+            } 
+                    
         })
     }
 
@@ -65,5 +67,19 @@ angular.module("myApp").service('myService', function($http){
             }
 
         })
+    }
+
+    this.answerVerifyQ = function(username1, userAnswer){
+        return $http({
+            method: 'POST',
+            url: 'http://localhost:3000/Users/answerRetrival',
+            data:{
+                "username": username1,
+                "answer": userAnswer
+            }
+
+        })
+
+
     }
 })

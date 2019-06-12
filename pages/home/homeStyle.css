@@ -1,9 +1,15 @@
 
-#images{
 
-    border : 1px solid red;
+.popularPOI{
+    top:50px;
     position: relative;
-    top : 70%;
+    height: 500px;
+}
+#images{
+    border : 1px solid red;
+    position: absolute;
+    bottom : 0px;
+    left:35%;
     
 }
 .single-img{

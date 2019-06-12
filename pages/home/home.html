@@ -6,25 +6,13 @@
 
         <br/>
         <br/>
-        <h2>POI</h2>
-
+        
         <div id="images" >
+            <h2>POI</h2>
             <div class = "single-img" ng-repeat="x in records">
                 <h3><a href="#" ng-click="myFunc(x)">{{x.IntrestName}}</a></h3>
                 <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
             </div>
-        </div>
-
-         <!-- The Modal -->
-        <div  id="myModal" class="modal"> 
-                        
-            <!-- Modal body -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p style="text-align: center" id ="modal-text" >dssfs</p>
-
-            </div>
-
         </div>
         
     </div>
