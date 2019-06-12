@@ -25,6 +25,8 @@
    
 
     $scope.submit = function(){
+      
+        routeProvider.navigateByUrl('pages/about/about.html');
 
         var username = uname.value;
         console.log(username);
@@ -35,6 +37,8 @@
         //$scope.records = response.data;
         $window.sessionStorage.setItem(key,response.data); 
         console.log("tokennn= "+$window.sessionStorage.getItem(key));
+
+        
         
         }, function(response) {
             $scope.records = response.statusText;

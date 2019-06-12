@@ -40,6 +40,10 @@ app.config(function($routeProvider)  {
             templateUrl: 'pages/register/register.html',
             controller : 'registerController as regCtrl'
         })
+        .when('/loggedIn', {
+            templateUrl: 'pages/loggedIn/loggedIn.html',
+            controller : 'loggedInController as logeedInCtrl'
+        })
         // other
         .otherwise({ redirectTo: '/' });
 });
