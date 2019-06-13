@@ -1,7 +1,8 @@
 <html>
     <head>
         <title>Ashkelon</title>
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body ng-app="myApp">
@@ -23,21 +24,37 @@
         <script src="pages/favorites/favoritesController.js"></script>
         <script src="services.js" type="text/javascript"></script>
 
-
+        <div class= "alert messsage alert-info" role= "alert">
+            <p id= "alertMessage"> Please  <a href='#!login' class= "alert-link">Log in</a>
+            or <a href='#!register' class= "alert-link">sign up</a> to continue</p>
+        </div> 
         <!-- the website -->
         <h1>Ashkelon</h1>
 
         <!-- menu -->
-        <nav class="topnav">
+        <nav id= "menuForGuest" class="topnav" ng-init= "mfguest=false" ng-hide = "mfguest">
+            
             <a href="#!home"  >Home</a>
             <a href="#!login" >Login</a>
             <a href="#!register" >Register</a>
             <a href="#!poi" >POI</a>
             <a href="#!about" >About</a>
             <!-- <a href="#!loggedIn" >LoggedIn</a> -->
-            <a href="#!favorites" >Favorites POI</a>
-
+             <a href="#!favorites" >Favorites POI</a>
         </nav>
+        
+        <br>
+              <!-- menu -->
+              <nav id= "menuForUser" class="topnav" ng-init= "mfUser=true" ng-hide = "mfUser">
+                    <a href="#!home"  >Home</a>
+                    <!-- <a href="#!login" >Login</a> -->
+                    <!-- <a href="#!register" >Register</a> -->
+                    <a href="#!poi" >POI</a>
+                    <a href="#!about" >About</a>
+                    <!-- <a href="#!loggedIn" >LoggedIn</a> -->
+                    <a href="#!favorites" >Favorites POI</a>
+        
+                </nav>
 
         <!-- This section changes as the hashbang changes -->
         <div ng-view></div>

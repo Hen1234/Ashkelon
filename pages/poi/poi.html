@@ -1,15 +1,17 @@
 <!-- css -->
-<!-- <style>
-    img {
-        height: 100px;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="pages/poi/poiStyle.css" />
 
-<h2>POI</h2> -->
+<div id="images" >
+        <h2>POI</h2>
+       
+        <div class = "single-img" ng-repeat="x in records">
+            <h3><a href="#" ng-click="myFunc(x)">{{x.IntrestName}}</a></h3>
+            <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+        </div>
+</div>
 
-<!-- display all cities -->
-<!-- <p ng-repeat="(id, city) in poiCtrl.cities">
-    City Name: <span ng-bind="city.name"></span><br>
-    City State: <span ng-bind="city.state"></span><br>
-    <img ng-src="{{ city.image }}">
-</p> -->
+<div id= "sortPOIbyRank">
+
+        <button type="button" id= sortPOIbyR ng-click= "sortPOIbyRank()">Sort POI by Rank</button>
+        
+</div>  

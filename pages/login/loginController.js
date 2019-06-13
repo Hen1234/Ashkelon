@@ -37,6 +37,12 @@
         //$scope.records = response.data;
         $window.sessionStorage.setItem(key,response.data); 
         console.log("tokennn= "+$window.sessionStorage.getItem(key));
+
+        document.getElementById("alertMessage").innerHTML = "hello "+username+"!"; 
+        $scope.CondUser = "true";
+        $scope.CondGuest = "false";
+        document.getElementById("alertMessage")
+        $scope.mfUser ="false";
         $location.url('/loggedIn');
 
 

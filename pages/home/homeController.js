@@ -23,25 +23,25 @@ angular.module("myApp")
                     }, function(error) {
                         $scope.records = error.statusText;
                     });
-            $scope.myFunc = function(x) {
-                // console.log("in func");             
-                var myModal = document.getElementById('myModal');
-                // var span= document.getElementsByClassName("close")[0];
-                myModal.style.display= "block";             
-                // span.onclick= function(){
-                //     mymodel.style.display= "none";
-                // }            
-                // console.log(x['IntrestName']);           
-                var myModalText = document.getElementById('modal-text');
-                console.log(myModalText.innerText);
-                myModalText.innerHTML = "Nirrrr";
-                console.log(myModalText.innerHTML);
-                // myModalText.style.border = "1px solid green";
-                // myModalText.style.height = "70px";
-                // myModalText.style.width = "70px";
-                // alert("POI View Counter"+(x['IntrestViewCounter'])+"/n"+
-                // "POI Category");
-            };
+            // $scope.myFunc = function(x) {
+            //     // console.log("in func");             
+            //     var myModal = document.getElementById('myModal');
+            //     // var span= document.getElementsByClassName("close")[0];
+            //     myModal.style.display= "block";             
+            //     // span.onclick= function(){
+            //     //     mymodel.style.display= "none";
+            //     // }            
+            //     // console.log(x['IntrestName']);           
+            //     var myModalText = document.getElementById('modal-text');
+            //     console.log(myModalText.innerText);
+            //     myModalText.innerHTML = "Nirrrr";
+            //     console.log(myModalText.innerHTML);
+            //     // myModalText.style.border = "1px solid green";
+            //     // myModalText.style.height = "70px";
+            //     // myModalText.style.width = "70px";
+            //     // alert("POI View Counter"+(x['IntrestViewCounter'])+"/n"+
+            //     // "POI Category");
+            // };
 
      
     

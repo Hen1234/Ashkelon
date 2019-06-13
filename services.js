@@ -141,4 +141,42 @@ angular.module("myApp").service('myService', function($http){
         }
         })
     }
+
+    this.sortFavoritesByRank = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/Favorites/private/GetFavoritesListByRank',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+    }
+
+    this.sortPOIbyRank = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetPOIListByCalculatedRank',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+
+
+
+    }
+
+    this.getPOIbyCat = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetPOIListByCategories',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+
+
+    }
 })
