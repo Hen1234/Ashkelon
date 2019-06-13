@@ -44,6 +44,10 @@ app.config(function($routeProvider)  {
             templateUrl: 'pages/loggedIn/loggedIn.html',
             controller : 'loggedInController as logeedInCtrl'
         })
+        .when('/favorites', {
+            templateUrl: 'pages/favorites/favorites.html',
+            controller : 'favoritesController as favoritesCtrl'
+        })
         // other
         .otherwise({ redirectTo: '/' });
 });

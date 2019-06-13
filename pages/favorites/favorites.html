@@ -1,0 +1,17 @@
+<br>
+<br>
+
+<div id="images" >
+        <h2>Favorites</h2>
+        {{message}}
+        <div class = "single-img" ng-repeat="x in records">
+            <h3><a href="#" ng-click="myFunc(x)">{{x.IntrestName}}</a></h3>
+            <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+        </div>
+    </div>
+
+<div id= "sortByCategory">
+
+        <button type= "button" id="sort" ng-click= "sortByCat()" >Sort by Category</button>
+        <button type= "button" id="sortRank" ng-click= "sortByRank()" >Sort by Rank</button>
+</div>    

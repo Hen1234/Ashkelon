@@ -2,7 +2,27 @@
 
 <table id= "tableLoggedIn" >
     <tr id ="singleRow">
-        <td id = "leftCol"> <p> hen</p></td>
-        <td id = "rightCol"> <p> osher</p></td>
+        <td id = "leftCol"> 
+            <b>Recommended POI For You:</b>
+            <div id="images1" >
+                    <h2>POI</h2>
+                    <div class = "single-img" ng-repeat="x in records">
+                        <h3><a href="#" ng-click="myFunc(x)">{{x.IntrestName}}</a></h3>
+                        <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+                    </div>
+                </div>
+
+
+        </td>
+        <td id = "rightCol">
+            <b>Last Favorites:</b>
+            <div id="images2" >
+                    <h4>Two Last Favorites POI</h4>
+                    <div class = "single-img2" ng-repeat="m in records2">
+                        <h5><b href="#" ng-click="myFunc(m)">{{m.pointOfIntrest}}</b></h5>
+                        <!-- <img class = "curr-img2" ng-src="{{ m.IntrestPicture}}"> -->
+                    </div>
+            </div>
+        </td>
     </tr>
 </table>

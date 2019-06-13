@@ -34,7 +34,7 @@
         <br/>
         <br/>
         <b>Email:</b> 
-        <input type="text" id= "email" name="email" ng-model="email" ng-pattern="regexEmail" >
+        <input type="email" id= "email" name="email" ng-model="email" ng-pattern="regexEmail" >
         <br/>
         <br/>                  
         <span style="color:red" ng-show="registerForm.email.$invalid" class="ng-hide">   
@@ -74,6 +74,8 @@
         <br/>
         <br/>
         <input ng-disabled="registerForm.$invalid" type="submit" id="submit" value="Submit">
+        <!-- <button ng-click= "location.href='#login'" ng-disabled="registerForm.$invalid" type="submit" id="submit" value="Submit"></button> -->
+        
     </form>
 
     <p>{{ answer }} </p>

@@ -1,5 +1,5 @@
 angular.module("myApp")
-.controller("registerController", function ($scope, $http, myService) {
+.controller("registerController", function ($scope, myService, $window, $location) {
 
     myService.registerGetCategories()
     .then(function (response) {
@@ -34,10 +34,13 @@ angular.module("myApp")
         var vanswer1 = answer1.value;
         var vanswer2 = answer2.value;
 
+        ///////////////////////////////////////$scope.uname
+
         myService.register(unameUser, passwordUser,fnameUser, lnameUser, countryUser, cityUser,
             emailUser, interest1, interest2, question1, question2, vanswer1, vanswer2)
         .then(function (response) {
             $scope.answer = response.data;
+            $location.url('/home');
         }, function(response) {
             $scope.answer = response.statusText;
         });

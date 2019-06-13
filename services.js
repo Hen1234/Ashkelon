@@ -82,4 +82,63 @@ angular.module("myApp").service('myService', function($http){
 
 
     }
+
+    this.recommendedPOI = function($window){
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/getTwoMostPOIForUserbyInterest',
+            headers: {
+                    'x-auth-token': $window.sessionStorage.getItem('token')
+            }
+
+        })
+
+    }
+
+    this.twoLastFavorites = function($window){
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/Favorites/private/GetTwoLastSites',
+            headers: {
+                    'x-auth-token': $window.sessionStorage.getItem('token')
+            }
+
+        })
+
+    }
+
+    this.getFavorites = function($window){
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/Favorites/private/GetFavoritesListDetails',
+            headers: {
+                    'x-auth-token': $window.sessionStorage.getItem('token')
+            }
+
+        })
+
+    }
+
+    this.sortFavoritesByCat = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/Favorites/private/GetFavoritesListByCategories',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+    }
+
+    
+    this.sortFavoritesByRank = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/Favorites/private/GetFavoritesListByRank',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+    }
 })
