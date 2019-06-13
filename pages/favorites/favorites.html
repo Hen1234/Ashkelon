@@ -8,10 +8,10 @@
         <h2>Favorites</h2>
         {{message}}
         <div class = "single-img" ng-repeat="x in records">
-            <h3 data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">{{x.IntrestName}}</h3>
-            
+            <h3 >{{x.IntrestName}}</h3>
+            <!-- <div data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</div> -->
             <!-- <img class = "curr-img" ng-src="{{x.IntrestPicture}}"  ng-click="imageInfo(x)"> -->
-            <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+            <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" >
         </div>
     </div>
    
@@ -24,6 +24,28 @@
 
 
 
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <!-- <div class = "single-img" ng-repeat="x in records"> -->
+              Name : {{Xname}}
+              <br>
+              Description : {{Xdesc}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 

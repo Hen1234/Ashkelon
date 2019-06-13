@@ -179,4 +179,54 @@ angular.module("myApp").service('myService', function($http){
 
 
     }
+
+    
+    this.getPOIbyCatSport = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetSitesByCategory/sport',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+
+
+    }
+
+    this.getPOIbyCatShopping = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetSitesByCategory/shopping',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+
+    }
+
+    this.getPOIbyCatRestaurant = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetSitesByCategory/restaurant',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+
+    }
+
+    this.getPOIbyCatFood = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetSitesByCategory/food',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        }
+        })
+
+    }
 })

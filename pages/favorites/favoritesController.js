@@ -1,7 +1,8 @@
 angular.module("myApp")
 .controller("favoritesController", function ($scope, myService, $window, $http) {
-   
-
+/*fields of x to show in modal*/
+$scope.Xname = "hh";
+$scope.Xdesc = "hh";
 
     myService.getFavorites($window).then(function(response){
         
@@ -24,6 +25,11 @@ angular.module("myApp")
         }, function(response) {
             $scope.records = response.statusText;
         });
+
+    $scope.changeData=function(x){
+        $scope.Xname = x.IntrestName;
+        $scope.Xdesc = x.IntrestDescription;
+    }
 
     $scope.sortByCat= function(){
 
@@ -74,12 +80,7 @@ angular.module("myApp")
     
    
     }
-    $scope.getpoi= function(poiName){
 
-       
-    
-   
-    }
 
 
 

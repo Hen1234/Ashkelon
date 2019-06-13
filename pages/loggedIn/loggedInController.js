@@ -12,7 +12,7 @@ angular.module("myApp")
     myService.twoLastFavorites($window).then(function(response){
         
         $scope.records2 = response.data;
-        console.log("here12345");
+     
     }, function(response) {
        
             $scope.records2 = response.statusText;

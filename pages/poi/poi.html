@@ -1,11 +1,11 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="pages/poi/poiStyle.css" />
 
-<div id="images" >
-        <h2>POI</h2>
+<!-- <div id="images" >
+       
        
         <div class = "single-img" ng-repeat="x in records">
-            <h3><a href="#" ng-click="myFunc(x)">{{x.IntrestName}}</a></h3>
+            <h3>{{x.IntrestName}}</h3>
             <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
         </div>
 </div>
@@ -14,4 +14,57 @@
 
         <button type="button" id= sortPOIbyR ng-click= "sortPOIbyRank()">Sort POI by Rank</button>
         
-</div>  
+</div>   -->
+
+<table id= "tableFavorites" align= "center" >
+        <tr id ="singleRow">
+            <h2>Points of Interest</h2>
+            <td id = "sport" align="center"> 
+                <b>Sport:</b>
+                <div id="images1" >
+                        <div class = "single-img" ng-repeat="sport in sportRecords">
+                            <h3>{{sport.IntrestName}}</h3>
+                            <img class = "curr-img" ng-src="{{ sport.IntrestPicture}}">
+                        </div>
+                </div>
+
+            </td>
+            <td id = "food" align="center"> 
+                    <b>Food:</b>
+                    <div id="images1" >
+                            <div class = "single-img" ng-repeat="food in foodRecords">
+                                <h3>{{food.IntrestName}}</h3>
+                                <img class = "curr-img" ng-src="{{ food.IntrestPicture}}">
+                            </div>
+                    </div>
+    
+            </td>
+            <td id = "shopping" align="center"> 
+                    <b>Shpping:</b>
+                    <div id="images1" >
+                            <div class = "single-img" ng-repeat="shopping in shoppingRecords">
+                                <h3>{{shopping.IntrestName}}</h3>
+                                <img class = "curr-img" ng-src="{{ shopping.IntrestPicture}}">
+                            </div>
+                    </div>
+    
+            </td>
+            <td id = "restaurant" align="center"> 
+                    <b>Restaurant:</b>
+                    <div id="images1" >
+                            <div class = "single-img" ng-repeat="restaurant in restaurantRecords">
+                                <h3>{{restaurant.IntrestName}}</h3>
+                                <img class = "curr-img" ng-src="{{ restaurant.IntrestPicture}}">
+                            </div>
+                    </div>
+    
+            </td>
+           
+        </tr>
+    </table>
+
+    <div id= "sortPOIbyRank">
+
+            <button type="button" id= sortPOIbyR ng-click= "sortPOIbyRank()">Sort POI by Rank</button>
+            
+    </div>   -->
