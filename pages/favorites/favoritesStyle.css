@@ -17,3 +17,9 @@
     width: 100px;
     
 }
+
+#list-group-item {
+    padding: 10px 15px;
+    height: 40px; 
+    width: 200px;
+}

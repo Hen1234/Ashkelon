@@ -1,27 +1,27 @@
 angular.module("myApp")
-.controller("favoritesController", function ($scope, myService, $window, $http) {
+.controller("favoritesController", function ($scope, myService, $window, $http, $location) {
 /*fields of x to show in modal*/
 // $scope.Xname = "hh";
 // $scope.Xdesc = "hh";
 
-    myService.getFavorites($window).then(function(response){
+myService.getFavorites($window).then(function(response){
         
         
-        if(response.data!= null){
-            $scope.records = response.data;
-            console.log("records="+$scope.records);
-        
-        //the user has no favorites
-        }else{
-            // $scope.sort.hide();
-            // $scope.sortRank.hide();
-            $scope.message = 'There are no favorites';
+    if(response.data!= "No such a user" ){
+        $scope.records = response.data;
+       
+    
+    //the user has no favorites
+    }else{
+      
+        $scope.records = "";
+        $scope.message = 'There are no favorites';
 
-        }
+    }
 
-        }, function(response) {
-            $scope.records = response.statusText;
-        });
+    }, function(response) {
+        $scope.records = response.statusText;
+    });
 
     $scope.changeData=function(x){
         $scope.Xname = x.IntrestName;
@@ -35,12 +35,20 @@ angular.module("myApp")
         //checkkkkkkkkkkkkkkkkkkk
         myService.getDetailsForReview($window, x.IntrestName)
         .then(function(response){
-            console.log("response"+response.data);
-            $scope.Xreview = response.data;
+            //console.log("responseeeee"+response.data[0]['reviewDescription']);
+            console.log("second= "+response.data[1]['reviewDescription']);
+            if(response.data[0]['reviewDescription'] == null){
+                $scope.Xreview = "no reviews";
+            }else{
+                $scope.Xreview = "\'"+response.data[0]['reviewDescription']+"\', "+response.data[0]['date']+"\n"+
+                "\'"+response.data[1]['reviewDescription']+"\', "+response.data[1]['date'];
+            }
+             
+           //console.log("responseeeee"+alert(JSON.stringify(response.data[0], null, 4)));
     
             
             }, function(response) {
-                $scope.Xrank = response.statusText;
+                $scope.Xreview = response.statusText;
             });
 
     }
@@ -101,13 +109,30 @@ angular.module("myApp")
         console.log("scubar= "+interestName );
         myService.removeFromFavoritesList($window,interestName )
         .then(function(response){
-            console.log("records="+$scope.records);
-            $scope.records = response.data;
+           
+            myService.getFavorites($window).then(function(response){
+        
+                if(response.data!= "No such a user" ){
+                    $scope.records = response.data;
+                   
+                //the user has no favorites
+                }else{
+                  
+                    $scope.records = "";
+                    $scope.message = 'There are no favorites';
+        
+                }
+        
+                }, function(response) {
+                    $scope.records = response.statusText;
+                });
+           
+
     
             
-            }, function(response) {
+        }, function(response) {
                 $scope.records = response.statusText;
-            });
+        });
 
     }
 
