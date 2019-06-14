@@ -39,10 +39,16 @@
               Name : {{Xname}}
               <br>
               Description : {{Xdesc}}
+              <br>
+              Ammount of views : {{XcountView}}
+              <br>
+              Calculated rank : {{Xrank}} 
+              <br>
+              Two last reviews : {{Xreview}}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary" ng-click= "removeFromFavorites(Xname)">Remove from Favorites</button>
             </div>
           </div>
         </div>

@@ -48,6 +48,8 @@ angular.module("myApp")
 
     $scope.sortPOIbyRank= function(){
 
+
+        tableFavorites.style.display = 'none';
         myService.sortPOIbyRank($window)
         .then(function(response){
             console.log("records="+$scope.records);
@@ -59,6 +61,12 @@ angular.module("myApp")
             });
     
    
+    }
+
+    $scope.filter = function(){
+
+        tableFavorites.style.display = 'none';
+        orangeModalSubscription.style.display = 'none';
     }
 
 

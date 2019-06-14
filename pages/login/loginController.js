@@ -41,7 +41,9 @@
         document.getElementById("alertMessage").innerHTML = "hello "+username+"!"; 
         $scope.CondUser = "true";
         $scope.CondGuest = "false";
-        document.getElementById("alertMessage")
+        menuForGuest.style.display = 'none';
+        menuForUser.style.display = 'block';
+        document.getElementById("alertMessage");
         $scope.mfUser ="false";
         $location.url('/loggedIn');
 

@@ -13,6 +13,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
         <!-- load app -->
         <script src="app.js"></script>
 
@@ -25,6 +26,7 @@
         <script src="pages/home/homeController.js"></script>
         <script src="pages/loggedIn/loggedInController.js"></script>
         <script src="pages/favorites/favoritesController.js"></script>
+        <script src="pages/logout/logoutController.js"></script>
         <script src="services.js" type="text/javascript"></script>
 
         <div class= "alert messsage alert-info" role= "alert">
@@ -35,7 +37,7 @@
         <h1>Ashkelon</h1>
 
         <!-- menu -->
-        <nav id= "menuForGuest" class="topnav" ng-init= "mfguest=false" ng-hide = "mfguest">
+        <nav id= "menuForGuest" class="topnav" >
             
             <a href="#!home"  >Home</a>
             <a href="#!login" >Login</a>
@@ -43,12 +45,12 @@
             <a href="#!poi" >Points of Interest</a>
             <a href="#!about" >About</a>
             <!-- <a href="#!loggedIn" >LoggedIn</a> -->
-             <a href="#!favorites" >My Favorites Points</a>
+             <!-- <a href="#!favorites" >My Favorites Points</a> -->
         </nav>
         
         <br>
               <!-- menu -->
-              <nav id= "menuForUser" class="topnav" ng-init= "mfUser=true" ng-hide = "mfUser">
+              <nav id= "menuForUser" class="topnav">
                     <a href="#!home"  >Home</a>
                     <!-- <a href="#!login" >Login</a> -->
                     <!-- <a href="#!register" >Register</a> -->
@@ -56,6 +58,8 @@
                     <a href="#!about" >About</a>
                     <!-- <a href="#!loggedIn" >LoggedIn</a> -->
                     <a href="#!favorites" >Favorites POI</a>
+                    <a href="#!logOut" >Log out</a>
+
         
                 </nav>
 

@@ -16,7 +16,7 @@
         
 </div>   -->
 
-<table id= "tableFavorites" align= "center" >
+ <table id= "tableFavorites" align= "center" >
         <tr id ="singleRow">
             <h2>Points of Interest</h2>
             <td id = "sport" align="center"> 
@@ -63,8 +63,78 @@
         </tr>
     </table>
 
-    <div id= "sortPOIbyRank">
+    <!-- <div id= "sortPOIbyRank">
 
             <button type="button" id= sortPOIbyR ng-click= "sortPOIbyRank()">Sort POI by Rank</button>
             
-    </div>   -->
+    </div>    --> 
+
+    <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Subscribe</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="form3" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form3">Your name</label>
+        </div>
+
+        <div class="md-form">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="form2" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form2">Your email</label>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn btn-outline-warning waves-effect">Send <i class="fas fa-paper-plane-o ml-1"></i></a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+<!-- <div class="text-center">
+  <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#orangeModalSubscription">Launch
+    modal Subscription</a>
+</div> -->
+
+    <br>
+    <br>
+    <div class="row">
+            <div class="col-4">
+              <div class="list-group" id="list-tab" role="tablist">
+                <p id= "list-group-item" class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Points of Interest</p>
+                <button id= "list-group-item" class="btn btn-default btn-rounded" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" ng-click="filter()" data-toggle="modal" data-target="#orangeModalSubscription">Search Point</button>
+                <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Filter by Category</button>
+                <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings" ng-click= "sortPOIbyRank()">Sort by Rank</button>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="images1" >
+                <div class = "single-img" ng-repeat="x in records">
+                        <h3>{{x.IntrestName}}</h3>
+                        <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+                </div>
+        </div>

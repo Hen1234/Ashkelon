@@ -50,6 +50,10 @@ app.config(function($routeProvider)  {
             templateUrl: 'pages/favorites/favorites.html',
             controller : 'favoritesController as favoritesCtrl'
         })
+        .when('/logOut', {
+            templateUrl: 'pages/logout/logout.html',
+            controller : 'logoutController as logoutCtrl'
+        })
         // other
         .otherwise({ redirectTo: '/' });
 });

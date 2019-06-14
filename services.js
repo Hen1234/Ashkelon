@@ -229,4 +229,37 @@ angular.module("myApp").service('myService', function($http){
         })
 
     }
+
+    this.getDetailsForReview = function($window, interestName ){
+
+        console.log("poi= "+interestName);
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetPOIDetails/'+interestName,
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },
+            // params: {
+            //     "interestName" : interestName
+            // }
+        })
+
+    }
+
+    this.removeFromFavoritesList = function($window, interestName ){
+
+        console.log("poi= "+interestName);
+        return $http({
+            method: 'DELETE',
+            url: 'http://localhost:3000/Favorites/private/RemoveFromFavoritesList/'+interestName,
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },
+        //     data:{
+        //         "POI": interestName
+           
+        // }
+        })
+
+    }
 })

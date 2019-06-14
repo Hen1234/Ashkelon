@@ -1,8 +1,8 @@
 angular.module("myApp")
 .controller("favoritesController", function ($scope, myService, $window, $http) {
 /*fields of x to show in modal*/
-$scope.Xname = "hh";
-$scope.Xdesc = "hh";
+// $scope.Xname = "hh";
+// $scope.Xdesc = "hh";
 
     myService.getFavorites($window).then(function(response){
         
@@ -19,9 +19,6 @@ $scope.Xdesc = "hh";
 
         }
 
-    
-    
-        
         }, function(response) {
             $scope.records = response.statusText;
         });
@@ -29,7 +26,25 @@ $scope.Xdesc = "hh";
     $scope.changeData=function(x){
         $scope.Xname = x.IntrestName;
         $scope.Xdesc = x.IntrestDescription;
+        $scope.XcountView = x.IntrestViewCounter;
+        $scope.Xrank = x.calculatedRank+"%";
+
+        
+
+        
+        //checkkkkkkkkkkkkkkkkkkk
+        myService.getDetailsForReview($window, x.IntrestName)
+        .then(function(response){
+            console.log("response"+response.data);
+            $scope.Xreview = response.data;
+    
+            
+            }, function(response) {
+                $scope.Xrank = response.statusText;
+            });
+
     }
+
 
     $scope.sortByCat= function(){
 
@@ -79,6 +94,21 @@ $scope.Xdesc = "hh";
             });
     
    
+    }
+
+    $scope.removeFromFavorites = function(interestName){
+
+        console.log("scubar= "+interestName );
+        myService.removeFromFavoritesList($window,interestName )
+        .then(function(response){
+            console.log("records="+$scope.records);
+            $scope.records = response.data;
+    
+            
+            }, function(response) {
+                $scope.records = response.statusText;
+            });
+
     }
 
 
