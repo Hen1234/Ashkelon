@@ -36,12 +36,16 @@ myService.getFavorites($window).then(function(response){
         myService.getDetailsForReview($window, x.IntrestName)
         .then(function(response){
             //console.log("responseeeee"+response.data[0]['reviewDescription']);
-            console.log("second= "+response.data[1]['reviewDescription']);
+            //console.log("second= "+response.data[1]['reviewDescription']);
             if(response.data[0]['reviewDescription'] == null){
                 $scope.Xreview = "no reviews";
             }else{
-                $scope.Xreview = "\'"+response.data[0]['reviewDescription']+"\', "+response.data[0]['date']+"\n"+
-                "\'"+response.data[1]['reviewDescription']+"\', "+response.data[1]['date'];
+                $scope.Xreview = "\'"+response.data[0]['reviewDescription']+"\', "+response.data[0]['date']+"\n";
+                if(response.data[1] !=null){
+                    $scope.Xreview = "\'"+response.data[0]['reviewDescription']+"\', "+response.data[0]['date']+"\n"+
+                    "\'"+response.data[1]['reviewDescription']+"\', "+response.data[1]['date'];
+                }
+               
             }
              
            //console.log("responseeeee"+alert(JSON.stringify(response.data[0], null, 4)));
@@ -58,8 +62,19 @@ myService.getFavorites($window).then(function(response){
 
             myService.sortFavoritesByCat($window)
             .then(function(response){
-                console.log("records="+$scope.records);
-                $scope.records = response.data;
+                images.style.display = 'none';
+           
+                if(response.data!= "No such a user" ){
+                    $scope.rankRecords = response.data;
+                   
+                
+                //the user has no favorites
+                }else{
+                  
+                    $scope.rankRecords = "";
+                    $scope.message = 'There are no favorites';
+            
+                }
         
                 
                 }, function(response) {
@@ -69,32 +84,27 @@ myService.getFavorites($window).then(function(response){
        
         }
 
-        $scope.myFunc = function(x) {
-            // console.log("in func");             
-            var myModal = document.getElementById('myModal');
-            // var span= document.getElementsByClassName("close")[0];
-            myModal.style.display= "block";             
-            // span.onclick= function(){
-            //     mymodel.style.display= "none";
-            // }            
-            // console.log(x['IntrestName']);           
-            var myModalText = document.getElementById('modal-text');
-            console.log(myModalText.innerText);
-            myModalText.innerHTML = "Nirrrr";
-            console.log(myModalText.innerHTML);
-            // myModalText.style.border = "1px solid green";
-            // myModalText.style.height = "70px";
-            // myModalText.style.width = "70px";
-            // alert("POI View Counter"+(x['IntrestViewCounter'])+"/n"+
-            // "POI Category");
-        };
 
     $scope.sortByRank= function(){
 
+
         myService.sortFavoritesByRank($window)
         .then(function(response){
-            console.log("records="+$scope.records);
-            $scope.records = response.data;
+            // console.log("records="+$scope.records);
+            images.style.display = 'none';
+           
+            if(response.data!= "No such a user" ){
+                $scope.rankRecords = response.data;
+               
+            
+            //the user has no favorites
+            }else{
+              
+                $scope.rankRecords = "";
+                $scope.message = 'There are no favorites';
+        
+            }
+         
     
             
             }, function(response) {
@@ -134,6 +144,20 @@ myService.getFavorites($window).then(function(response){
                 $scope.records = response.statusText;
         });
 
+    }
+
+    $scope.createFeedback = function(x){
+
+        var rankNum = rank.value;
+        var description = reviewFromUser.value;
+        // console.log("scope.= "+$scope.x.IntrestName);
+        myService.createFeed("GironMall", rankNum,description, $window).
+        then(function(response){
+
+
+        }, function(response) {
+                $scope.records = response.statusText;
+        });
     }
 
 

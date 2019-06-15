@@ -255,11 +255,56 @@ angular.module("myApp").service('myService', function($http){
             headers: {
                 'x-auth-token': $window.sessionStorage.getItem('token')
         },
-        //     data:{
-        //         "POI": interestName
-           
-        // }
+      
         })
+
+    }
+
+    this.createFeed = function(xIntrestName, rankNum,description, $window){
+
+        return $http({
+            method: 'POST',
+            url: 'http://localhost:3000/POI/private/CreateReview',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },
+            data:{
+                "rank": rankNum,
+                "description": description,
+                "interestName": xIntrestName
+        }
+      
+        })
+
+
+    }
+
+    this.searchPOI = function(interestName, $window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetPOIDetails/'+interestName,
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },
+    
+      
+        })
+
+    }
+
+    this.getPOIbyCat= function(catName, $window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/private/GetSitesByCategory/'+catName,
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },
+    
+      
+        })
+
 
     }
 })

@@ -1,20 +1,35 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="pages/poi/poiStyle.css" />
 
-<!-- <div id="images" >
-       
-       
-        <div class = "single-img" ng-repeat="x in records">
-            <h3>{{x.IntrestName}}</h3>
-            <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
-        </div>
-</div>
-
-<div id= "sortPOIbyRank">
-
-        <button type="button" id= sortPOIbyR ng-click= "sortPOIbyRank()">Sort POI by Rank</button>
-        
-</div>   -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"><b>Details</b></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div class = "single-img" ng-repeat="x in records"> -->
+                      <b>Name</b> : {{Xname}}
+                      <br>
+                      <b>Description</b> : {{Xdesc}}
+                      <br>
+                      <b>Ammount of views</b> : {{XcountView}}
+                      <br>
+                      <b>Calculated rank</b> : {{Xrank}} 
+                      <br>
+                      <b>Two last reviews</b> : {{Xreview}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal" >close</button>
+                      <!-- <button type="button" class="btn btn-primary" ng-click= "removeFromFavorites(Xname)">Remove from Favorites</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
 
  <table id= "tableFavorites" align= "center" >
         <tr id ="singleRow">
@@ -24,7 +39,7 @@
                 <div id="images1" >
                         <div class = "single-img" ng-repeat="sport in sportRecords">
                             <h3>{{sport.IntrestName}}</h3>
-                            <img class = "curr-img" ng-src="{{ sport.IntrestPicture}}">
+                            <img class = "curr-img" ng-src="{{ sport.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(sport)">
                         </div>
                 </div>
 
@@ -34,7 +49,7 @@
                     <div id="images1" >
                             <div class = "single-img" ng-repeat="food in foodRecords">
                                 <h3>{{food.IntrestName}}</h3>
-                                <img class = "curr-img" ng-src="{{ food.IntrestPicture}}">
+                                <img class = "curr-img" ng-src="{{ food.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(food)">
                             </div>
                     </div>
     
@@ -44,7 +59,7 @@
                     <div id="images1" >
                             <div class = "single-img" ng-repeat="shopping in shoppingRecords">
                                 <h3>{{shopping.IntrestName}}</h3>
-                                <img class = "curr-img" ng-src="{{ shopping.IntrestPicture}}">
+                                <img class = "curr-img" ng-src="{{ shopping.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(shopping)">
                             </div>
                     </div>
     
@@ -54,7 +69,7 @@
                     <div id="images1" >
                             <div class = "single-img" ng-repeat="restaurant in restaurantRecords">
                                 <h3>{{restaurant.IntrestName}}</h3>
-                                <img class = "curr-img" ng-src="{{ restaurant.IntrestPicture}}">
+                                <img class = "curr-img" ng-src="{{ restaurant.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(restaurant)">
                             </div>
                     </div>
     
@@ -63,12 +78,9 @@
         </tr>
     </table>
 
-    <!-- <div id= "sortPOIbyRank">
+   
 
-            <button type="button" id= sortPOIbyR ng-click= "sortPOIbyRank()">Sort POI by Rank</button>
-            
-    </div>    --> 
-
+    <!-- modal for search -->
     <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-notify modal-warning" role="document">
@@ -76,7 +88,7 @@
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header text-center">
-        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Subscribe</h4>
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Search Point of Interest</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>
         </button>
@@ -86,30 +98,81 @@
       <div class="modal-body">
         <div class="md-form mb-5">
           <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="form3" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="form3">Your name</label>
+          <label data-error="wrong" data-success="right" for="form3">Interest name:</label>
+          <input type="text" id="searchPOI" class="form-control validate">
+         
         </div>
 
-        <div class="md-form">
+        <!-- <div class="md-form">
           <i class="fas fa-envelope prefix grey-text"></i>
           <input type="email" id="form2" class="form-control validate">
           <label data-error="wrong" data-success="right" for="form2">Your email</label>
-        </div>
+        </div> -->
       </div>
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <a type="button" class="btn btn-outline-warning waves-effect">Send <i class="fas fa-paper-plane-o ml-1"></i></a>
-      </div>
+        <!-- <a type="button" class="btn btn-outline-warning waves-effect">Send <i class="fas fa-paper-plane-o ml-1"></i></a> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click= "searchPOI()">search</button>
+        </div>
     </div>
     <!--/.Content-->
   </div>
 </div>
 
-<!-- <div class="text-center">
-  <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#orangeModalSubscription">Launch
-    modal Subscription</a>
-</div> -->
+  <!-- modal for filter -->
+  <div class="modal fade" id="orangeModalSubscriptionForFilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Filter POI by Category</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="form3">Category name:</label>
+          <select id='category'>
+                        <option value="shopping">shopping</option>
+                        <option value="sport">sport</option>
+                        <option value="restaurant">restaurant</option>
+                        <option value="food">food</option>
+                </select>
+         
+        </div>
+
+        <!-- <div class="md-form">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="form2" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form2">Your email</label>
+        </div> -->
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <!-- <a type="button" class="btn btn-outline-warning waves-effect">Send <i class="fas fa-paper-plane-o ml-1"></i></a> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click= "filterByCat()">filter</button>
+        </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+<!-- div for search POI -->
+<div id="imagesForSearch" >
+                <!-- <div class = "single-img" ng-repeat="x in records"></div> -->
+                        <h3>{{singlePOI}}</h3>
+                        <img class = "curr-img" ng-src="{{IntrestPicture}}">
+                </div>
+       
+
 
     <br>
     <br>
@@ -117,9 +180,11 @@
             <div class="col-4">
               <div class="list-group" id="list-tab" role="tablist">
                 <p id= "list-group-item" class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Points of Interest</p>
-                <button id= "list-group-item" class="btn btn-default btn-rounded" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" ng-click="filter()" data-toggle="modal" data-target="#orangeModalSubscription">Search Point</button>
-                <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Filter by Category</button>
+                <!-- <button id= "list-group-item" class="btn btn-default btn-rounded" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"  data-toggle="modal" data-target="#orangeModalSubscription">Search Point</button> -->
+                <button id="list-group-item" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#orangeModalSubscription">Search Point</button>
+                <button id= "list-group-item" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#orangeModalSubscriptionForFilter">Filter by Category</button>
                 <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings" ng-click= "sortPOIbyRank()">Sort by Rank</button>
+                <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings" ng-click= "sortPOIbyCategories()">Sort by Categories</button>
               </div>
             </div>
             <div class="col-8">
@@ -132,9 +197,10 @@
             </div>
           </div>
 
-          <div id="images1" >
+          <!-- div for sort by rank -->
+        <div id="images1" >
                 <div class = "single-img" ng-repeat="x in records">
                         <h3>{{x.IntrestName}}</h3>
-                        <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+                        <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" >
                 </div>
         </div>

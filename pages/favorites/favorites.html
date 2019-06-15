@@ -6,28 +6,27 @@
 <br>
 <div id="images" >
         <h2>Favorites</h2>
-        {{message}}
+       
         <div class = "single-img" ng-repeat="x in records">
             <h3 >{{x.IntrestName}}</h3>
-            <!-- <div data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</div> -->
-            <!-- <img class = "curr-img" ng-src="{{x.IntrestPicture}}"  ng-click="imageInfo(x)"> -->
             <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" >
+            <button id= "review"  data-toggle="modal" data-target="#orangeModalSubscription">Give a Feedback</button>
         </div>
     </div>
-   
-<div id= "sortByCategory">
+    {{message}}
+<!-- <div id= "sortByCategory">
 
         <button type= "button" id="sort" ng-click= "sortByCat()" >Sort by Category</button>
         <button type= "button" id="sortRank" ng-click= "sortByRank()" >Sort by Rank</button>
-</div>    
+</div>     -->
 
 <div class="row">
         <div class="col-4">
           <div class="list-group" id="list-tab" role="tablist">
-            <p id= "list-group-item" class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Points of Interest</p>
-            <button id= "list-group-item" class="btn btn-default btn-rounded" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" ng-click="filter()" data-toggle="modal" data-target="#orangeModalSubscription">Search Point</button>
-            <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Filter by Category</button>
-            <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings" ng-click= "sortPOIbyRank()">Sort by Rank</button>
+            <p id= "list-group-item" class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Favorites</p>
+            <button id= "list-group-item" class="btn btn-default btn-rounded" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" ng-click="sortByCat()">Sort by Category</button>
+            <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" ng-click= "sortByRank()">Sort by Rank</button>
+            <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"data-toggle="modal" data-target="#exampleModal" >Inser Your Order</button>
           </div>
         </div>
         <div class="col-8">
@@ -41,9 +40,9 @@
       </div>
 
       <div id="images1" >
-            <div class = "single-img" ng-repeat="x in records">
-                    <h3>{{x.IntrestName}}</h3>
-                    <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+            <div class = "single-img" ng-repeat="y in rankRecords">
+                    <h3>{{y.IntrestName}}</h3>
+                    <img class = "curr-img" ng-src="{{ y.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(y)" >
             </div>
     </div>
 
@@ -78,4 +77,97 @@
         </div>
       </div>
 
-
+      <!-- table for the categories -->
+      <!-- <table id= "tableFavorites" align= "center" >
+            <tr id ="singleRow">
+                <h2>Favorites</h2>
+                <td id = "sport" align="center"> 
+                    <b>Sport:</b>
+                    <div id="images1" >
+                            <div class = "single-img" ng-repeat="sport in sportRecords">
+                                <h3>{{sport.IntrestName}}</h3>
+                                <img class = "curr-img" ng-src="{{ sport.IntrestPicture}}">
+                            </div>
+                    </div>
+    
+                </td>
+                <td id = "food" align="center"> 
+                        <b>Food:</b>
+                        <div id="images1" >
+                                <div class = "single-img" ng-repeat="food in foodRecords">
+                                    <h3>{{food.IntrestName}}</h3>
+                                    <img class = "curr-img" ng-src="{{ food.IntrestPicture}}">
+                                </div>
+                        </div>
+        
+                </td>
+                <td id = "shopping" align="center"> 
+                        <b>Shpping:</b>
+                        <div id="images1" >
+                                <div class = "single-img" ng-repeat="shopping in shoppingRecords">
+                                    <h3>{{shopping.IntrestName}}</h3>
+                                    <img class = "curr-img" ng-src="{{ shopping.IntrestPicture}}">
+                                </div>
+                        </div>
+        
+                </td>
+                <td id = "restaurant" align="center"> 
+                        <b>Restaurant:</b>
+                        <div id="images1" >
+                                <div class = "single-img" ng-repeat="restaurant in restaurantRecords">
+                                    <h3>{{restaurant.IntrestName}}</h3>
+                                    <img class = "curr-img" ng-src="{{ restaurant.IntrestPicture}}">
+                                </div>
+                        </div>
+        
+                </td>
+               
+            </tr>
+        </table> -->
+        
+        <!-- modal for reviews -->
+        <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+          <!--Content-->
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header text-center">
+              <h4 class="modal-title white-text w-100 font-weight-bold py-2">Subscribe</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="white-text">&times;</span>
+              </button>
+            </div>
+      
+            <!--Body-->
+            <div class="modal-body">
+              <div class="md-form mb-5">
+                <i class="fas fa-user prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="form3">Rank between 1-5:</label>
+                <select id='rank'>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                </select>
+                <!-- <input type="text" id="form3" class="form-control validate"> -->
+               
+              </div>
+      
+              <div class="md-form">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="form2">Your feedback:</label>
+                <input type="text" id="reviewFromUser" class="form-control validate">
+              
+              </div>
+            </div>
+      
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+              <a type="button" class="btn btn-outline-warning waves-effect" ng-click= "createFeedback(x)">Send <i class="fas fa-paper-plane-o ml-1"></i></a>
+            </div>
+          </div>
+          <!--/.Content-->
+        </div>
+      </div>
