@@ -38,12 +38,15 @@
         $window.sessionStorage.setItem(key,response.data); 
         console.log("tokennn= "+$window.sessionStorage.getItem(key));
 
-        document.getElementById("alertMessage").innerHTML = "hello "+username+"!"; 
-        // document.getElementById("alertAlignRight").innerHTML = "fuck this assignment!"; 
-        $scope.CondUser = "true";
-        $scope.CondGuest = "false";
-        menuForGuest.style.display = 'none';
-        menuForUser.style.display = 'block';
+        document.getElementById("alertAlignLeft").innerHTML = "hello "+username+"!"; 
+      
+        var userM = document.getElementsByClassName("userMode");
+        for(i=0; i<userM.length; i++){
+            userM[i].style.display = 'block';
+        }
+
+        guestMenu.style.display = 'none';
+       
         document.getElementById("alertAlignLeft");
         $scope.mfUser ="false";
         $location.url('/loggedIn');

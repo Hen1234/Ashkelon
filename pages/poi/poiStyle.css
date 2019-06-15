@@ -1,10 +1,6 @@
-#images{
-    /* border : 1px solid red; */
-    /* position: absolute;
-    bottom : 0px; */
-    left:35%;
-    
-}
+
+
+
 .single-img{
     /* display: inline-block; */
     padding: 20px;
@@ -13,8 +9,8 @@
    
 }
 .curr-img{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     
 }
 #list-group-item {
@@ -23,17 +19,19 @@
     width: 200px;
 }
 
-#tableFavorites{
-    padding: 10px 15px;
-    right:200%;
-}
 
-.list-group{
-   
-    top: 200%;
-}
+
 
 #imagesForSearch{
 
     display: none;
+}
+#buttonsTable{
+    position:fixed;
+    top:110px;
+    
+}
+
+#titlePOI{
+    font-size: 100px;
 }

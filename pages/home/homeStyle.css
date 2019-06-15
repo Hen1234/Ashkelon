@@ -6,16 +6,16 @@
     height: 500px;
 }
 #images{
-    border : 1px solid red;
+    /* border : 1px solid red; */
     position: absolute;
     bottom : 0px;
-    left:35%;
+    left:25%;
     
 }
 .single-img{
     display: inline-block;
     padding: 20px;
-    border : 1px solid green;
+    /* border : 1px solid green; */
     
    
 }
@@ -27,6 +27,18 @@
 
 #myModal{
     /* display: none; */
+}
+
+#titleHome{
+
+    font-size: 8em;
+    
+}
+
+#mostPopular{
+
+    font-size: 3em;
+
 }
 
 

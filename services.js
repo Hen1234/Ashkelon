@@ -182,6 +182,7 @@ angular.module("myApp").service('myService', function($http){
 
     
     this.getPOIbyCatSport = function($window){
+        
 
         return $http({
             method: 'GET',
@@ -219,6 +220,8 @@ angular.module("myApp").service('myService', function($http){
     }
 
     this.getPOIbyCatFood = function($window){
+        console.log("here foodddd");
+        console.log("here tokennn= "+$window.sessionStorage.getItem('token'));
 
         return $http({
             method: 'GET',

@@ -36,6 +36,7 @@ angular.module("myApp")
 
     myService.getPOIbyCatFood($window)
     .then(function(response){
+        
         console.log("records="+$scope.records);
         $scope.foodRecords = response.data;
 
@@ -68,17 +69,20 @@ angular.module("myApp")
     
         //"fa fa-star-o"- empty star, fa fa-star- full star
         //for sort by categories
+        var counter = countFavorites.innerHTML;
+        counter = parseInt(counter);
         if(cases == 0){
             if(document.getElementById(idName.IntrestName).className == "fa fa-star"){
                 // console.log("full to empty " + idName.IntrestName );
                 document.getElementById(idName.IntrestName).className = "fa fa-star-o";
                 myService.removeFromFavoritesList($window,idName.IntrestName);
-
+                counter--;
             }
             else{
                 // console.log("empty to full : " + idName.IntrestName );
                 document.getElementById(idName.IntrestName).className = "fa fa-star";
                 myService.addToFavorites(idName.IntrestName, $window);
+                counter++;
 
 
             }
@@ -91,10 +95,12 @@ angular.module("myApp")
 
                 document.getElementById(idName.IntrestDescription).className = "fa fa-star-o";
                 myService.removeFromFavoritesList($window,idName.IntrestName);
+                counter--;
             }
             else{
                 document.getElementById(idName.IntrestDescription).className = "fa fa-star";
                 myService.addToFavorites(idName.IntrestName, $window);
+                counter++;
             }
         }
 
@@ -105,13 +111,16 @@ angular.module("myApp")
 
                 document.getElementById(idName).className = "fa fa-star-o";
                 myService.removeFromFavoritesList($window,$scope.singlePOI);
+                counter--;
             }
             else{
                 console.log("hereeeesingle "+idName);
                 document.getElementById(idName).className = "fa fa-star";
                 myService.addToFavorites($scope.singlePOI, $window);
+                counter++;
             }
         }
+        countFavorites.innerHTML = counter;
     }
     $scope.searchPOI = function(){
         console.log("here890");
@@ -242,6 +251,7 @@ angular.module("myApp")
     $scope.sortPOIbyCategories = function(){
 
         tableFavorites.style.display = 'block';
+
         imagesForSearch.style.display = 'none';
         //innerImages.style.display ='none';
         imagesForRank.style.display = 'none';

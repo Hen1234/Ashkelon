@@ -3,14 +3,15 @@
     
     
     <div class= "popularPOI" align="center">
+        <h1 id= "titleHome" align="center">Welcome to Ashkelon</h1>
 
         <br/>
         <br/>
         
-        <div id="images" >
-            <h2>POI</h2>
+        <div id="images" align="center" >
+            <h2 id="mostPopular">Most Popular Points of Interest</h2>
             <div class = "single-img" ng-repeat="x in records">
-                <h3><a href="#" ng-click="myFunc(x)">{{x.IntrestName}}</a></h3>
+                <h3> {{x.IntrestName}}</h3>
                 <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
             </div>
         </div>

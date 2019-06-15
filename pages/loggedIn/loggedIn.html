@@ -1,17 +1,17 @@
 <link rel="stylesheet" type="text/css" href="pages/loggedIn/loggedInStyle.css" />
 <table id= "tableLoggedIn" >
     <tr id ="singleRow">
-        <td id = "leftCol"> 
+        <td id = "leftCol" > 
+            <div class = "leftColDiv" align ="center">
             <b>Recommended POI For You:</b>
-            <div id="images1" >
-                    <h2>POI</h2>
-                    <div class = "single-img" ng-repeat="x in records">
+            <div id="images1"  >
+                    <div class = "single-img1" ng-repeat="x in records">
                         <h3>{{x.IntrestName}}</h3>
-                        <img class = "curr-img" ng-src="{{ x.IntrestPicture}}">
+                        <img class = "curr-img1" ng-src="{{ x.IntrestPicture}}">
                     </div>
                 </div>
 
-
+            </div>
         </td>
         <td id = "rightCol">
             <b>Last Favorites:</b>

@@ -1,12 +1,25 @@
-table{
+#tableLoggedIn{
     width: 100%;
     height: 100%;
     text-align: center;
-    order: 3px, solid red;
+    /* border: 3px, solid red; */
 
 }
 
 td{
-    border: 2px, solid green;
+    /* border: 2px, solid green; */
+}
+
+.single-img1{
+    display: inline-block;
+    padding: 20px;
+    /* border : 1px solid green; */
+    
+   
+}
+.curr-img1{
+    height: 150px;
+    width: 150px;
+    
 }
 
