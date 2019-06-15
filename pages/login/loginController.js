@@ -39,11 +39,12 @@
         console.log("tokennn= "+$window.sessionStorage.getItem(key));
 
         document.getElementById("alertMessage").innerHTML = "hello "+username+"!"; 
+        // document.getElementById("alertAlignRight").innerHTML = "fuck this assignment!"; 
         $scope.CondUser = "true";
         $scope.CondGuest = "false";
         menuForGuest.style.display = 'none';
         menuForUser.style.display = 'block';
-        document.getElementById("alertMessage");
+        document.getElementById("alertAlignLeft");
         $scope.mfUser ="false";
         $location.url('/loggedIn');
 

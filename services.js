@@ -307,4 +307,23 @@ angular.module("myApp").service('myService', function($http){
 
 
     }
+
+    this.addToFavorites= function(InterestName, $window){
+
+        return $http({
+            method: 'POST',
+            url: 'http://localhost:3000/favorites/private/AddToFavoritesList',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },
+            data:{
+                "pointOfIntrest": InterestName
+
+    }
+  
+    })
+    
+    
+
+    }
 })

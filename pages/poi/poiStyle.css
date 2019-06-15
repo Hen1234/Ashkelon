@@ -32,3 +32,8 @@
    
     top: 200%;
 }
+
+#imagesForSearch{
+
+    display: none;
+}
