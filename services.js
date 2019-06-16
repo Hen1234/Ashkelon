@@ -327,6 +327,14 @@ angular.module("myApp").service('myService', function($http){
     })
     
     
+    }
 
+    this.getThreeRandom = function($window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/POI/threeRandomPOI'
+
+        })
     }
 })

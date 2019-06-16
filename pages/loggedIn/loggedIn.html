@@ -7,7 +7,7 @@
             <div id="images1"  >
                     <div class = "single-img1" ng-repeat="x in records">
                         <h3>{{x.IntrestName}}</h3>
-                        <img class = "curr-img1" ng-src="{{ x.IntrestPicture}}">
+                        <img class = "curr-img1" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)">
                     </div>
                 </div>
 
@@ -18,14 +18,14 @@
             <div id="images2" >
                 <h4>Two Last Favorites Points of Interest:</h4>
                     <div id="images21" align= "center">
-                            <!-- <div class = "single-img" ng-repeat="x in records"></div> -->
-                                    <!-- <h3>{{singlePOI1}}</h3>
-                                    <img class = "curr-img1" ng-src="{{IntrestPicture1}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI)> -->
+                            <div class = "single-img" ng-repeat="x in records"></div> -->
+                                     <h3>{{singlePOI1}}</h3>
+                                    <img class = "curr-img1" ng-src="{{IntrestPicture1}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI1)>
                             </div>
                             <div id="images22" align= "center">
                                      <div class = "single-img" ng-repeat="x in records"></div> -->
                                              <h3>{{singlePOI2}}</h3>
-                                            <img class = "curr-img1" ng-src="{{IntrestPicture2}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI)>
+                                            <img class = "curr-img1" ng-src="{{IntrestPicture2}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI2)>
                                     </div>         
               
                     <!-- <h4>Two Last Favorites Points of Interest:</h4>
@@ -39,3 +39,33 @@
         </td>
     </tr>
 </table>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel"><b>Details</b></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- <div class = "single-img" ng-repeat="x in records"> -->
+                          <b>Name</b> : {{Xname}}
+                          <br>
+                          <b>Description</b> : {{Xdesc}}
+                          <br>
+                          <b>Ammount of views</b> : {{XcountView}}
+                          <br>
+                          <b>Calculated rank</b> : {{Xrank}} 
+                          <br>
+                          <b>Two last reviews</b> : {{Xreview}}
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" >close</button>
+                          <!-- <button type="button" class="btn btn-primary" ng-click= "removeFromFavorites(Xname)">Remove from Favorites</button> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>

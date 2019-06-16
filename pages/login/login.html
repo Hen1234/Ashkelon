@@ -8,6 +8,8 @@
         <form name="loginForm" ng-submit="submit()" novalidate>
        
             <br/>
+            <h2>Login</h2>
+            <br>
             <div class="form-group">
             <h1 class= "titles">User Name:</h1> 
             <input  type="text" id= "uname"  name="uname" ng-model="uname" required ng-minlength="3">
@@ -29,7 +31,6 @@
             <input  class="btn btn-primary" ng-disabled="loginForm.$invalid" type="submit" id="submit" value="Submit">
         </form>
         <div id= retrievePass >
-                <br/>
                 <br/>
                 <h3 class= "titles">Forgot password? Press here:</h3>
                 <button type= "button" id="retrievePassButton" ng-click="retrievePassFunc()">Retrieve password</button>

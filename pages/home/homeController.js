@@ -1,50 +1,55 @@
 
 angular.module("myApp")
-.controller("homeController", function ($scope, $http) {
+.controller("homeController", function ($scope, $http, myService, $window) {
   
-        $http({
-                        method: 'GET',
-                        url: 'http://localhost:3000/POI/threeRandomPOI'
-                              
-                    }).then(function (response) {
-                        
-                        // var name1 = response.data[0]['IntrestName'];
-                        // var pic1 = response.data[0]['IntrestPicture'];
-                      
-                        //response.data =[ 
-                        //     {'IntrestName':'Nir!!', ...all fields},
-                        //     {'IntrestName':'hen!'...all fields},
-                        //     {'IntrestName':'osher!!!!!!'...all fields}
-                        //  ]
-                        $scope.records = response.data;
-                        // $scope.records = response.data[0].IntrestName+","+response.data[0].IntrestPicture;
-                        // i=$scope.records[0].IntrestName;
-                        
-                    }, function(error) {
-                        $scope.records = error.statusText;
-                    });
-            // $scope.myFunc = function(x) {
-            //     // console.log("in func");             
-            //     var myModal = document.getElementById('myModal');
-            //     // var span= document.getElementsByClassName("close")[0];
-            //     myModal.style.display= "block";             
-            //     // span.onclick= function(){
-            //     //     mymodel.style.display= "none";
-            //     // }            
-            //     // console.log(x['IntrestName']);           
-            //     var myModalText = document.getElementById('modal-text');
-            //     console.log(myModalText.innerText);
-            //     myModalText.innerHTML = "Nirrrr";
-            //     console.log(myModalText.innerHTML);
-            //     // myModalText.style.border = "1px solid green";
-            //     // myModalText.style.height = "70px";
-            //     // myModalText.style.width = "70px";
-            //     // alert("POI View Counter"+(x['IntrestViewCounter'])+"/n"+
-            //     // "POI Category");
-            // };
+
+       
+        myService.getThreeRandom($window).then(function(response){
+
+            $scope.records = response.data;
+       
+
+        }, function(error) {
+            $scope.records = error.statusText;
+        });
+
+       
 
      
-    
+        $scope.changeData=function(x){
+                $scope.Xname = x.IntrestName;
+                $scope.Xdesc = x.IntrestDescription;
+                $scope.XcountView = x.IntrestViewCounter;
+                $scope.Xrank = x.calculatedRank+"%";
+        
+                
+        
+                
+                //checkkkkkkkkkkkkkkkkkkk
+                myService.getDetailsForReview($window, x.IntrestName)
+                .then(function(response){
+                    //console.log("responseeeee"+response.data[0]['reviewDescription']);
+                    //console.log("second= "+response.data[1]['reviewDescription']);
+                    if(response.data[0]['reviewDescription'] == null){
+                        $scope.Xreview = "no reviews";
+                    }else{
+                        $scope.Xreview = "\'"+response.data[0]['reviewDescription']+"\', "+response.data[0]['date']+"\n";
+                        if(response.data[1] !=null){
+                            $scope.Xreview = "\'"+response.data[0]['reviewDescription']+"\', "+response.data[0]['date']+"\n"+
+                            "\'"+response.data[1]['reviewDescription']+"\', "+response.data[1]['date'];
+                        }
+                       
+                    }
+                     
+                   //console.log("responseeeee"+alert(JSON.stringify(response.data[0], null, 4)));
+            
+                    
+                    }, function(response) {
+                        $scope.Xreview = response.statusText;
+                    });
+        
+            }
+
 
     
 

@@ -4,8 +4,7 @@ angular.module("myApp")
     $location.url('/home');
  
 
-    // document.getElementById("alertAlignLeft").innerHTML = "Please  <a href='#!login' class= "alert-link">Log in</a>
-    // or <a href='#!register' class= "alert-link">sign up</a> to continue
+    document.getElementById("alertAlignLeft").innerHTML = "Please  <a href='#!login' class= alert-link>Log in</a> or <a href='#!register' class= alert-link>sign up</a> to continue";
       
     var userM = document.getElementsByClassName("userMode");
     console.log ("the element : \n");
