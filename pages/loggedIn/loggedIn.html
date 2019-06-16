@@ -3,7 +3,7 @@
     <tr id ="singleRow">
         <td id = "leftCol" > 
             <div class = "leftColDiv" align ="center">
-            <b>Recommended POI For You:</b>
+            <h4>Recommended Points of Interest For You:</h4>
             <div id="images1"  >
                     <div class = "single-img1" ng-repeat="x in records">
                         <h3>{{x.IntrestName}}</h3>
@@ -14,11 +14,25 @@
             </div>
         </td>
         <td id = "rightCol">
-            <b>Last Favorites:</b>
+            <!-- <b>Last Favorites:</b> -->
             <div id="images2" >
-                    <h4>Two Last Favorites POI</h4>
+                <h4>Two Last Favorites Points of Interest:</h4>
+                    <div id="images21" align= "center">
+                            <!-- <div class = "single-img" ng-repeat="x in records"></div> -->
+                                    <!-- <h3>{{singlePOI1}}</h3>
+                                    <img class = "curr-img1" ng-src="{{IntrestPicture1}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI)> -->
+                            </div>
+                            <div id="images22" align= "center">
+                                     <div class = "single-img" ng-repeat="x in records"></div> -->
+                                             <h3>{{singlePOI2}}</h3>
+                                            <img class = "curr-img1" ng-src="{{IntrestPicture2}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI)>
+                                    </div>         
+              
+                    <!-- <h4>Two Last Favorites Points of Interest:</h4>
                     <div class = "single-img2" ng-repeat="m in records2">
-                        <h5><b href="#" ng-click="myFunc(m)">{{m.pointOfIntrest}}</b></h5>
+                            <h3>{{m.IntrestName}}</h3>
+                            <img class = "curr-img2" ng-src="{{ m.IntrestPicture}}"> -->
+                        <!-- <h5><b href="#" ng-click="myFunc(m)">{{m.pointOfIntrest}}</b></h5> -->
                         <!-- <img class = "curr-img2" ng-src="{{ m.IntrestPicture}}"> -->
                     </div>
             </div>

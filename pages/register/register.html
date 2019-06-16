@@ -1,39 +1,39 @@
+<link rel="stylesheet" type="text/css" href="pages/register/registerStyle.css" />
+
 <div ng-controller="registerController as regCtrl">
     <form name="registerForm" ng-submit="submit()" novalidate>
-   
+
         <br/>
         <br/>
-        <br/>
-        <br/>
-        <b>User Name:</b> 
+        <h >User Name:</h> 
         <input type="text" id= "uname" name="uname" ng-model="uname" required ng-minlength="3" ng-maxlenth="8"> 
         <span ng-show="registerForm.uname.$error.required" class="ng-hide">This is required! </span>
         <span ng-show="registerForm.uname.$error.minlength">Minimum length is 3 </span>
         <span ng-show="registerForm.uname.$error.maxlength">Maximum length is 8 </span>
         <span ng-show="registerForm.uname.$invalid"class="ng-hide">Invalid field</span><br><br>
-        <b>Password:</b> 
+        <h>Password:</h> 
         <input type="text" id= "password" name="password" ng-model="password" required ng-minlength="5" ng-maxlenth="10"> 
         <span ng-show="registerForm.password.$error.required"class="ng-hide">This is required! </span>
         <span ng-show="registerForm.password.$error.minlength">Minimum length is 5 </span>
         <span ng-show="registerForm.password.$error.maxlength">Maximum length is 10 </span>
         <span ng-show="registerForm.password.$invalid">Invalid field</span><br><br>
-        <b>First name:</b> 
+        <h>First name:</h> 
         <input type="text" id= "fname" name="fname" ng-model="fname" >
         <br/>
         <br/>
-        <b>Last name:</b> 
+        <h>Last name:</h> 
         <input type="text" id= "lname" name="lname" ng-model="lname" >
         <br/>
         <br/>
-        <b>City:</b> 
+        <h>City:</h> 
         <input type="text" id= "city" name="city" ng-model="city" >
         <br/>
         <br/>
-        <b>Country:</b> 
+        <h>Country:</h> 
         <input type="text" id= "country" name="country" ng-model="country" >
         <br/>
         <br/>
-        <b>Email:</b> 
+        <h>Email:</h> 
         <input type="email" id= "email" name="email" ng-model="email" ng-pattern="regexEmail" >
         <br/>
         <br/>                  
@@ -41,35 +41,35 @@
         Please Enter Valid  Name.!  
         </span>  
         <br/>
-        <b>First interest:</b> 
+        <h>First interest:</h> 
         <select id='fInterest'>
             <option ng-repeat = "y in options" >{{y.category}}</option>
         </select>
         <br/>
         <br/>
-        <b>Second interest:</b> 
+        <h>Second interest:</h> 
         <select id='sInterest'>
             <option ng-repeat = "y in options" >{{y.category}}</option>
         </select>
         <br/>
         <br/>
-        <b>Verification Question 1:</b> 
+        <h>Verification Question 1:</h> 
         <select id='fQuestion'>
             <option ng-repeat = "z in questions" >{{z.verificationQuestion}}</option>
         </select>
         <br/>
         <br/>
-        <b>Answer 1:</b> 
+        <h>Answer 1:</h> 
         <input type="text" id= "answer1" name="answer1" ng-model="answer1" >
         <br/>
         <br/>
-        <b>Verification Question 2:</b> 
+        <h>Verification Question 2:</h> 
         <select id='sQuestion'>
             <option ng-repeat = "z in questions" >{{z.verificationQuestion}}</option>
         </select>
         <br/>
         <br/>
-        <b>Answer 2:</b> 
+        <h>Answer 2:</h> 
         <input type="text" id= "answer2" name="answer2" ng-model="answer2" >
         <br/>
         <br/>

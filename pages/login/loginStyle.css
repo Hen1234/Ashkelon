@@ -1,0 +1,52 @@
+/* .form-group{
+
+    font-size: 3em;
+} */
+
+.titles{
+    font-size: 200%; 
+    font-weight: 900;
+
+}
+
+
+.popularPOI{
+    top:50px;
+    position: relative;
+    height: 500px;
+}
+#images{
+    /* border : 1px solid red; */
+    position: absolute;
+    bottom : 0px;
+    left:25%;
+    
+}
+.single-img{
+    display: inline-block;
+    padding: 20px;
+    /* border : 1px solid green; */
+    
+   
+}
+.curr-img{
+    height: 100px;
+    width: 100px;
+    
+}
+
+#myModal{
+    /* display: none; */
+}
+
+#titleHome{
+
+    font-size: 8em;
+    
+}
+
+#mostPopular{
+
+    font-size: 3em;
+
+}

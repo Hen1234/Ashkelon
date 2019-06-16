@@ -114,32 +114,64 @@
                 var question2 = response.data[0]['question2'];
     
                 myService.answerVerifyQ(username1, userAnswer1).then(function(response){
-                    if(!(response.data == "Wrong answer")){
-                        console.log("pass= "+JSON.stringify( response.data,null,4));
-                        $window.alert('Your password is: ' + response.data[0]['password']);
-                    //wrong answer
-                    }else if( (response.data[0]['question2']) != ""){
-                       
+
+                      if(userAnswer1==null){
+
+                      }
+                      else{
+                                //wrong answer
+                    
+                      if(response.data == "Wrong answer"){
                         var userAnswer2 = $window.prompt(question2);
-                       
                         myService.answerVerifyQ(username1, userAnswer2).then(function(response){
                             
-                            
-                            if(!(response.data == "Wrong answer")){
-                                $window.alert('Your password is: ' + response.data[0]['password']);
-                            //wrong answer
+                              //wrong answer
+                            if(response.data == "Wrong answer"){
+                                $window.alert("Wrong answer");
+                          
                             }else{
-                                // console.log("niiir");
                                 // console.log(JSON.stringify(response.data,null,4));
-                                $window.alert(response.data);
+                                $window.alert('Your password is: ' + response.data[0]['password']);
             
                             }
             
                         })
-                    
+                        
                     }else{
-                        $window.alert(response.data);
+                        $window.alert('Your password is: ' + response.data[0]['password']);
                     }
+
+
+                    // if(!(response.data == "Wrong answer")){
+                    //     console.log("pass= "+JSON.stringify( response.data,null,4));
+                    //     $window.alert('Your password is: ' + response.data[0]['password']);
+                    // //wrong answer
+                    // }else if( (response.data[0]['question2']) != ""){
+                       
+                    //     var userAnswer2 = $window.prompt(question2);
+                       
+                    //     myService.answerVerifyQ(username1, userAnswer2).then(function(response){
+                            
+                            
+                    //         if(!(response.data == "Wrong answer")){
+                    //             $window.alert('Your password is: ' + response.data[0]['password']);
+                    //         //wrong answer
+                    //         }else{
+                    //             // console.log("niiir");
+                    //             // console.log(JSON.stringify(response.data,null,4));
+                    //             $window.alert(response.data);
+            
+                    //         }
+            
+                    //     })
+                    
+                    // }else{
+                    //     $window.alert(response.data);
+                    // }
+
+                      }
+                    
+                  
     
                 })
     
