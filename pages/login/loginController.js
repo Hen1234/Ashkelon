@@ -21,7 +21,7 @@
 
 
     angular.module("myApp")
-    .controller("loginController", function ($scope, $window, myService, $location) {
+    .controller("loginController", function ($rootScope, $scope, $window, myService, $location) {
    
 
     $scope.submit = function(){
@@ -46,7 +46,10 @@
         }
 
         guestMenu.style.display = 'none';
-       
+        console.log("before : " +  $rootScope.loginFlag );
+        $rootScope.loginFlag = 'true';
+
+       console.log("after : " +   $rootScope.loginFlag);
         document.getElementById("alertAlignLeft");
         $scope.mfUser ="false";
         $location.url('/loggedIn');

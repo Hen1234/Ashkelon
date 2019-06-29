@@ -1,13 +1,14 @@
 
 angular.module("myApp")
-.controller("homeController", function ($scope, $http, myService, $window) {
-  
-
-       
+.controller("homeController", function ($scope, $http, myService, $window, $rootScope) {
+//     if( $rootScope.loginFlag == 'false' ||  $rootScope.loginFlag == undefined)
+//     $rootScope.loginFlag = 'false';
+// else  $rootScope.loginFlag = 'true';
+//console.log("app.controller loginFlag : " + $rootScope.loginFlag)
         myService.getThreeRandom($window).then(function(response){
 
             $scope.records = response.data;
-       
+        
 
         }, function(error) {
             $scope.records = error.statusText;

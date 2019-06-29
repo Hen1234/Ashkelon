@@ -1,11 +1,6 @@
 let app = angular.module('myApp', ["ngRoute"]);
 
-
-function star($location) {
-
-    $location.url('/favorites');
-
-}
+       
 
 // config routes
 app.config(function($routeProvider)  {

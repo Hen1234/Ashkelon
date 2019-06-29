@@ -1,5 +1,5 @@
 angular.module("myApp")
-.controller("logoutController", function ($scope, myService, $window, $location) {
+.controller("logoutController", function ($rootScope, $scope, myService, $window, $location) {
 
     $location.url('/home');
  
@@ -13,6 +13,9 @@ angular.module("myApp")
         userM[i].style.display = 'none';
     }
 
+
     guestMenu.style.display = 'block';
+    $rootScope.loginFlag = false;
+    console.log("logoutFlag "+$rootScope.loginFlag);
 
 })

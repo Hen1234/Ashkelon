@@ -33,8 +33,9 @@
                 <div id="images1" >
                         <div class = "single-img" ng-repeat="sport in sportRecords">
                             <h3>{{sport.IntrestName}}</h3>
-                            <button  class="userMode btn btn-primary " ng-click = "changeStarIcon(sport,0)" ><i id = "{{sport.IntrestName}}" class="fa fa-star-o" ></i></button>
-                            <img class = "curr-img" ng-src="{{ sport.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(sport)">
+                            <button  class="userMode btn btn-primary " ng-if = "loginFlag" ng-click = "changeStarIcon(sport,0)" ><i id = "{{sport.IntrestName}}" class="fa fa-star-o" ></i></button>
+                            <img class = "curr-img" ng-src="{{ sport.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(sport)"><br/>
+                            <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(sport)">Give Feedback</button>
                         </div>
                 </div>
 
@@ -44,8 +45,9 @@
                     <div id="images1" >
                             <div class = "single-img" ng-repeat="food in foodRecords">
                                 <h3>{{food.IntrestName}}</h3>
-                                <button  class="btn btn-primary userMode" ng-click = "changeStarIcon(food,0)" ><i id = "{{food.IntrestName}}" class="fa fa-star-o" ></i></button>
-                                <img class = "curr-img" ng-src="{{ food.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(food)">
+                                <button  class="btn btn-primary userMode" ng-if = "loginFlag" ng-click = "changeStarIcon(food,0)" ><i id = "{{food.IntrestName}}" class="fa fa-star-o" ></i></button>
+                                <img class = "curr-img" ng-src="{{ food.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(food)"><br/>
+                                <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(food)">Give Feedback</button>
                             </div>
                     </div>
     
@@ -55,8 +57,9 @@
                     <div id="images1" >
                             <div class = "single-img" ng-repeat="shopping in shoppingRecords">
                                 <h3>{{shopping.IntrestName}}</h3>
-                                <button  class="btn btn-primary userMode" ng-click = "changeStarIcon(shopping,0)" ><i id = "{{shopping.IntrestName}}" class="fa fa-star-o" ></i></button>
-                                <img class = "curr-img" ng-src="{{ shopping.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(shopping)">
+                                <button  class="btn btn-primary userMode" ng-if = "loginFlag" ng-click = "changeStarIcon(shopping,0)" ><i id = "{{shopping.IntrestName}}" class="fa fa-star-o" ></i></button>
+                                <img class = "curr-img" ng-src="{{ shopping.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(shopping)"><br/>
+                                <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(shopping)">Give Feedback</button>
                             </div>
                     </div>
     
@@ -64,10 +67,11 @@
             <td id = "restaurant" align="center"> 
                     <b>Restaurant:</b>
                     <div id="images1" >
-                            <div class = "single-img" ng-repeat="restaurant in restaurantRecords">
+                            <div class = "single-img"  ng-repeat="restaurant in restaurantRecords">
                                 <h3>{{restaurant.IntrestName}}</h3>
-                                <button  class="btn btn-primary userMode" ng-click = "changeStarIcon(restaurant,0)" ><i id = "{{restaurant.IntrestName}}" class="fa fa-star-o" ></i></button>
-                                <img class = "curr-img" ng-src="{{ restaurant.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(restaurant)">
+                                <button  class="btn btn-primary userMode" ng-if = "loginFlag" ng-click = "changeStarIcon(restaurant,0)" ><i id = "{{restaurant.IntrestName}}" class="fa fa-star-o" ></i></button>
+                                <img class = "curr-img" ng-src="{{ restaurant.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(restaurant)"><br/>
+                                <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(restaurant)">Give Feedback</button>
                             </div>
                     </div>
     
@@ -83,8 +87,9 @@
 <div id="imagesForSearch" align= "center">
                 <!-- <div class = "single-img" ng-repeat="x in records"></div> -->
                         <h3>{{singlePOI}}</h3>
-                        <button  class="btn btn-primary userMode" ng-click = "changeStarIcon('singlePOI',2)" ><i id = "singlePOI" class="fa fa-star-o" ></i></button>
-                        <img class = "curr-img" ng-src="{{IntrestPicture}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI)>
+                        <button  class="btn btn-primary userMode" ng-if = "loginFlag" ng-click = "changeStarIcon('singlePOI',2)" ><i id = "singlePOI" class="fa fa-star-o" ></i></button>
+                        <img class = "curr-img" ng-src="{{IntrestPicture}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI)><br/>
+                        <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(singlePOI)">Give Feedback</button>
                 </div>
 
    
@@ -186,8 +191,9 @@
         <div id="imagesForRank" align= "center">
                 <div class = "single-img" ng-repeat="x in records" >
                         <h3>{{x.IntrestName}}</h3>
-                        <button  class="btn btn-primary userMode" ng-click = "changeStarIcon(x,1)" ><i id = "{{x.IntrestDescription}}" class="fa fa-star-o"></i></button>
-                        <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" >
+                        <button  class="btn btn-primary userMode" ng-if = "loginFlag" ng-click = "changeStarIcon(x,1)" ><i id = "{{x.IntrestDescription}}" class="fa fa-star-o"></i></button>
+                        <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" ><br/>
+                        <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(x)">Give Feedback</button>
                 </div>
         </div>
 
@@ -221,3 +227,53 @@
                 </div>
               </div>
             </div>
+
+
+            <div class="modal fade" id="orangeModalSubscriptionForFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header text-center">
+                  <h4 class="modal-title white-text w-100 font-weight-bold py-2">Feedback</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                  </button>
+                </div>
+          
+                <!--Body-->
+                <div class="modal-body">
+                  <h3>{{interestNameForFeed}}</h3>
+                  <br/>
+    
+                  <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <label data-error="wrong" data-success="right" for="form3">Rank between 1-5:</label>
+                    <select id='rank'>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                    </select>
+                    <!-- <input type="text" id="form3" class="form-control validate"> -->
+                   
+                  </div>
+          
+                  <div class="md-form">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <label data-error="wrong" data-success="right" for="form2">Your feedback:</label>
+                    <input type="text" id="reviewFromUser" class="form-control validate">
+                  
+                  </div>
+                </div>
+          
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                  <a type="button" class="btn btn-outline-warning waves-effect" ng-click= "createFeedback(interestNameForFeed)">Send <i class="fas fa-paper-plane-o ml-1"></i></a>
+                </div>
+              </div>
+              <!--/.Content-->
+            </div>
+          </div>

@@ -2,17 +2,60 @@
 
 <link rel="stylesheet" type="text/css" href="pages/favorites/favoritesStyle.css" />
 
-<br>
-<br>
-<div id="images" >
-        <h2>Favorites</h2>
-       
-        <div class = "single-img" ng-repeat="x in records">
-            <h3 >{{x.IntrestName}}</h3>
-            <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" >
-            <button id= "review"  data-toggle="modal" data-target="#orangeModalSubscription">Give a Feedback</button>
-        </div>
-    </div>
+
+<h2 id= "titleFavorites" align= "center" >Favorites</h2>
+
+<table style="width:100%">
+    <tr>
+      <td  style="width:35%">
+          <div class="row">
+              <div class="col-4">
+                <div class="list-group" id="list-tab" role="tablist">
+                  <p id= "list-group-item" class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Favorites</p>
+                  <button id= "list-group-item" class="btn btn-default btn-rounded" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" ng-click="sortByCat()">Sort by Category</button>
+                  <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" ng-click= "sortByRank()">Sort by Rank</button>
+                  <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"data-toggle="modal" data-target="#exampleModal" >Inser Your Order</button>
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+                  <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+                  <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+                  <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+                </div>
+              </div>
+            </div>
+      </td>
+
+      <td  style="width:65% "  >
+          <div id="images" >
+            
+             
+              <div class = "single-img" ng-repeat="x in records">
+                  <h3 >{{x.IntrestName}}</h3>
+                  <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" ><br>
+                  <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscription" ng-click= "forFeed(x)">Give Feedback</button>
+              </div>
+          </div>
+
+          <div id="images1" >
+              <div class = "single-img" ng-repeat="y in rankRecords">
+                      <h3>{{y.IntrestName}}</h3>
+                      <img class = "curr-img" ng-src="{{ y.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(y)" ><br>
+                      <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscription" ng-click= "forFeed(y)">Give Feedback</button>
+              </div>
+      </div>
+
+      </td>
+
+    </tr>
+  </table>
+
+
+
+
+
     {{message}}
 <!-- <div id= "sortByCategory">
 
@@ -20,31 +63,8 @@
         <button type= "button" id="sortRank" ng-click= "sortByRank()" >Sort by Rank</button>
 </div>     -->
 
-<div class="row">
-        <div class="col-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <p id= "list-group-item" class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Favorites</p>
-            <button id= "list-group-item" class="btn btn-default btn-rounded" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" ng-click="sortByCat()">Sort by Category</button>
-            <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" ng-click= "sortByRank()">Sort by Rank</button>
-            <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"data-toggle="modal" data-target="#exampleModal" >Inser Your Order</button>
-          </div>
-        </div>
-        <div class="col-8">
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-          </div>
-        </div>
-      </div>
 
-      <div id="images1" >
-            <div class = "single-img" ng-repeat="y in rankRecords">
-                    <h3>{{y.IntrestName}}</h3>
-                    <img class = "curr-img" ng-src="{{ y.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(y)" >
-            </div>
-    </div>
+     
 
 
 <!-- Modal -->
@@ -133,7 +153,7 @@
           <div class="modal-content">
             <!--Header-->
             <div class="modal-header text-center">
-              <h4 class="modal-title white-text w-100 font-weight-bold py-2">Subscribe</h4>
+              <h4 class="modal-title white-text w-100 font-weight-bold py-2">Feedback</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" class="white-text">&times;</span>
               </button>
@@ -141,6 +161,9 @@
       
             <!--Body-->
             <div class="modal-body">
+              <h3>{{interestNameForFeed}}</h3>
+              <br/>
+
               <div class="md-form mb-5">
                 <i class="fas fa-user prefix grey-text"></i>
                 <label data-error="wrong" data-success="right" for="form3">Rank between 1-5:</label>
@@ -165,7 +188,7 @@
       
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-              <a type="button" class="btn btn-outline-warning waves-effect" ng-click= "createFeedback(x)">Send <i class="fas fa-paper-plane-o ml-1"></i></a>
+              <a type="button" class="btn btn-outline-warning waves-effect" ng-click= "createFeedback(interestNameForFeed)">Send <i class="fas fa-paper-plane-o ml-1"></i></a>
             </div>
           </div>
           <!--/.Content-->

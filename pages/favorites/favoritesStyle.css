@@ -23,3 +23,13 @@
     height: 40px; 
     width: 200px;
 }
+
+.review{
+    padding: 0;
+    text-align: justify;
+    width : 100px;
+}
+
+#titleFavorites{
+    font-size: 100px;
+}

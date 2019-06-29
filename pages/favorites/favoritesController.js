@@ -146,12 +146,18 @@ myService.getFavorites($window).then(function(response){
 
     }
 
-    $scope.createFeedback = function(x){
+    $scope.forFeed = function(x){
+
+        $scope.interestNameForFeed = x.IntrestName;
+
+    }
+
+    $scope.createFeedback = function(interestNameForFeed){
 
         var rankNum = rank.value;
         var description = reviewFromUser.value;
         // console.log("scope.= "+$scope.x.IntrestName);
-        myService.createFeed("GironMall", rankNum,description, $window).
+        myService.createFeed(interestNameForFeed, rankNum,description, $window).
         then(function(response){
 
 

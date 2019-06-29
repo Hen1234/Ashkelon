@@ -1,8 +1,28 @@
 //poi controller
 angular.module("myApp")
-.controller("poiController", function ($scope, myService, $window) {
+.controller("poiController", function ($rootScope, $scope, myService, $window) {
+    console.log("poiFlag "+$rootScope.loginFlag);
 
 
+    $scope.forFeed = function(x){
+
+        $scope.interestNameForFeed = x.IntrestName;
+
+    }
+
+    $scope.createFeedback = function(interestNameForFeed){
+
+        var rankNum = rank.value;
+        var description = reviewFromUser.value;
+        // console.log("scope.= "+$scope.x.IntrestName);
+        myService.createFeed(interestNameForFeed, rankNum,description, $window).
+        then(function(response){
+
+
+        }, function(response) {
+                $scope.records = response.statusText;
+        });
+    }
     myService.getPOIbyCatSport($window)
     .then(function(response){
         console.log("records="+$scope.records);
