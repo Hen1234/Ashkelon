@@ -14,18 +14,18 @@
             <h1 class= "titles">User Name:</h1> 
             <input  type="text" id= "uname"  name="uname" ng-model="uname" required ng-minlength="3">
             <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">  -->
-            <span ng-show="loginForm.uname.$error.required">This is required! </span>
-            <span ng-show="loginForm.uname.$error.minlength">Minimum length is 3 </span>
-            <span ng-show="loginForm.uname.$error.maxlength">Maximum length is 8 </span>
-            <span ng-show="loginForm.uname.$invalid">Invalid field</span><br><br>
+            <!-- <span ng-show="loginForm.uname.$error.required"></span> -->
+            <!-- <span ng-show="loginForm.uname.$error.minlength">Minimum length is 3 </span>
+            <span ng-show="loginForm.uname.$error.maxlength"><b>Maximum length is 8</b> </span> -->
+            <!-- <span ng-show="loginForm.uname.$invalid"></span><br><br> -->
             </div>
             <div class="form-group">
             <h2 class= "titles">Password:</h2> 
             <input type="text" id= "password" name="password" ng-model="password" required ng-minlength="5"> 
-            <span ng-show="loginForm.password.$error.required">This is required! </span>
+            <!-- <span ng-show="loginForm.password.$error.required"></span>
             <span ng-show="loginForm.password.$error.minlength">Minimum length is 5 </span>
             <span ng-show="loginForm.password.$error.maxlength">Maximum length is 10 </span>
-            <span ng-show="loginForm.password.$invalid">Invalid field</span><br><br>
+            <span ng-show="loginForm.password.$invalid"></span><br><br> -->
             </div>
             <br/>
             <input  class="btn btn-primary" ng-disabled="loginForm.$invalid" type="submit" id="submit" value="Submit">

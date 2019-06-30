@@ -15,10 +15,20 @@ angular.module("myApp")
         $scope.questions = response.statusText;
     });
 
+    myService.registerGetCountries()
+    .then(function (response) {
+        $scope.countries = response.data;
+    }, function(response) {
+        $scope.countries = response.statusText;
+    });
+
+
+
 
     $scope.submit = function(){
 
         $scope.regexEmail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        
 
         var unameUser = uname.value;
         var passwordUser = password.value;
@@ -39,8 +49,15 @@ angular.module("myApp")
         myService.register(unameUser, passwordUser,fnameUser, lnameUser, countryUser, cityUser,
             emailUser, interest1, interest2, question1, question2, vanswer1, vanswer2)
         .then(function (response) {
-            $scope.answer = response.data;
-            $location.url('/home');
+            if( response.data=="Username exists. Please choose new one"){
+                $window.alert("Username exists. Please choose new one");
+            
+            }else{
+                $scope.answer = response.data;
+                $location.url('/login');
+
+            }
+     
         }, function(response) {
             $scope.answer = response.statusText;
         });

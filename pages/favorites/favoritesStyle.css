@@ -13,10 +13,12 @@
    
 }
 .curr-img{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     
 }
+
+
 
 #list-group-item {
     padding: 10px 15px;
@@ -26,10 +28,22 @@
 
 .review{
     padding: 0;
-    text-align: justify;
-    width : 100px;
+    /* text-align: justify; */
+    width : 150px;
 }
 
 #titleFavorites{
     font-size: 100px;
+}
+#buttonsTable{
+    position:fixed;
+    top:92px;
+    
+}
+
+.poiName{
+
+    font-size: 30px;
+    font-weight: 600;
+
 }

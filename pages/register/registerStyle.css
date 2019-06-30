@@ -10,3 +10,16 @@ h2{
     font-weight: 700;
 
 }
+
+.signUp{
+
+    background-color:rgba(249, 253, 253, 0.74);
+}
+
+.inputCheck{
+
+    font-size: 130%;
+    font-weight: 700;
+    color: red;
+
+}

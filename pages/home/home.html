@@ -9,10 +9,13 @@
         <br/>
         
         <div id="images" align="center" >
+          <br/>
+          <br/>
             <h2 id="mostPopular">Most Popular Points of Interest</h2>
             <div class = "single-img" ng-repeat="x in records">
-                <h3> {{x.IntrestName}}</h3>
-                <img class = "curr-img" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" >
+                <h3 class="poiName" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)"> {{x.IntrestName}}</h3>
+                <img class = "curr-img img-thumbnail" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)" ><br/>
+                <button class = "btn btn-primary review" ng-if = "loginFlag"  data-toggle="modal" data-target="#orangeModalSubscription" ng-click= "forFeed(x)">Give Feedback</button>
             </div>
         </div>
         
@@ -46,6 +49,55 @@
               <!-- <button type="button" class="btn btn-primary" ng-click= "removeFromFavorites(Xname)">Remove from Favorites</button> -->
             </div>
           </div>
+        </div>
+      </div>
+
+        <!-- modal for reviews -->
+        <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+          <!--Content-->
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header text-center">
+              <h4 class="modal-title white-text w-100 font-weight-bold py-2">Feedback</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="white-text">&times;</span>
+              </button>
+            </div>
+      
+            <!--Body-->
+            <div class="modal-body">
+              <h3>{{interestNameForFeed}}</h3>
+              <br/>
+
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="form3">Rank between 1-5:</label>
+                <select id='rank'>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                </select>
+                <!-- <input type="text" id="form3" class="form-control validate"> -->
+               
+              </div>
+      
+              <div class="md-form">
+                <label data-error="wrong" data-success="right" for="form2">Your feedback:</label>
+                <input type="text" id="reviewFromUser" class="form-control validate">
+              
+              </div>
+            </div>
+      
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+              <!-- <a type="button" class="btn btn-outline-warning waves-effect" ng-click= "createFeedback(interestNameForFeed)">Send <i class="fas fa-paper-plane-o ml-1"></i></a> -->
+              <button  class=" btn btn-primary" data-dismiss="modal" aria-label="Close" ng-click= "createFeedback(interestNameForFeed)">Send</button>
+            </div>
+          </div>
+          <!--/.Content-->
         </div>
       </div>
         

@@ -133,6 +133,8 @@ myService.getFavorites($window).then(function(response){
         
                 }
         
+                $location.url('/favorites');
+
                 }, function(response) {
                     $scope.records = response.statusText;
                 });
@@ -149,6 +151,10 @@ myService.getFavorites($window).then(function(response){
     $scope.forFeed = function(x){
 
         $scope.interestNameForFeed = x.IntrestName;
+        rank.value = "";
+        reviewFromUser.value = "";
+
+
 
     }
 

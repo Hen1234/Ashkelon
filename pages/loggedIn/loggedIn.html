@@ -6,8 +6,10 @@
             <h4>Recommended Points of Interest For You:</h4>
             <div id="images1"  >
                     <div class = "single-img1" ng-repeat="x in records">
-                        <h3>{{x.IntrestName}}</h3>
-                        <img class = "curr-img1" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)">
+                        <h3 class="poiName" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)">{{x.IntrestName}}</h3>
+                        <img class = "curr-img1 img-thumbnail" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)"> <br/>
+                        <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(x)">Give Feedback</button>
+                        
                     </div>
                 </div>
 
@@ -19,12 +21,15 @@
                 <h4>Two Last Favorites Points of Interest:</h4>
                     <div id="images21" align= "center">
                             <div class = "single-img" >
-                                     <h3>{{singlePOI1}}</h3>
-                                    <img class = "curr-img1" ng-src="{{IntrestPicture1}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI1)>
+                                     <h3 class="poiName" data-toggle="modal" data-target="#exampleModal" ng-click ="changeDataForSinglePOI(singlePOI1)">{{singlePOI1}}</h3>
+                                    <img class = "curr-img1 img-thumbnail" ng-src="{{IntrestPicture1}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI1)><br/>
+                                    <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(singlePOI1)">Give Feedback</button>
                                   </div>
                             <div class = "single-img" >
-                                    <h3>{{singlePOI2}}</h3>
-                                  <img class = "curr-img1" ng-src="{{IntrestPicture2}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI2)>
+                                    <h3 class="poiName" data-toggle="modal" data-target="#exampleModal" ng-click ="changeDataForSinglePOI(singlePOI2)">{{singlePOI2}}</h3>
+                                  <img class = "curr-img1 img-thumbnail" ng-src="{{IntrestPicture2}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI2)><br/>
+                                  <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(singlePOI2)">Give Feedback</button>
+                                  
                           </div>         
                       </div>
                     <!-- <h4>Two Last Favorites Points of Interest:</h4>
@@ -67,3 +72,53 @@
                       </div>
                     </div>
                   </div>
+
+           <!-- modal for feedback -->
+           <div class="modal fade" id="orangeModalSubscriptionForFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+           aria-hidden="true">
+           <div class="modal-dialog modal-notify modal-warning" role="document">
+             <!--Content-->
+             <div class="modal-content">
+               <!--Header-->
+               <div class="modal-header text-center">
+                 <h4 class="modal-title white-text w-100 font-weight-bold py-2">Feedback</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true" class="white-text">&times;</span>
+                 </button>
+               </div>
+         
+               <!--Body-->
+               <div class="modal-body">
+                 <h3>{{interestNameForFeed}}</h3>
+                 <br/>
+   
+                 <div class="md-form mb-5">
+                   <label data-error="wrong" data-success="right" for="form3">Rank between 1-5:</label>
+                   <select id='rank'>
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                           <option value="5">5</option>
+                   </select>
+                   <!-- <input type="text" id="form3" class="form-control validate"> -->
+                  
+                 </div>
+         
+                 <div class="md-form">
+                   <label data-error="wrong" data-success="right" for="form2">Your feedback:</label>
+                   <input type="text" id="reviewFromUser" class="form-control validate">
+                 
+                 </div>
+               </div>
+         
+               <!--Footer-->
+               <div class="modal-footer justify-content-center">
+                   <button  class=" btn btn-primary" data-dismiss="modal" aria-label="Close" ng-click= "createFeedback(interestNameForFeed)">Send</button>
+               </div>
+             </div>
+             <!--/.Content-->
+           </div>
+         </div>
+
+      

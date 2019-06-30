@@ -35,24 +35,32 @@
         let key = 'token';
         myService.login(username,pass).then(function(response){
         //$scope.records = response.data;
-        $window.sessionStorage.setItem(key,response.data); 
-        console.log("tokennn= "+$window.sessionStorage.getItem(key));
+        if(response.data == "No such username"){
+            $window.alert("No such username");
 
-        document.getElementById("alertAlignLeft").innerHTML = "hello "+username+"!"; 
-      
-        var userM = document.getElementsByClassName("userMode");
-        for(i=0; i<userM.length; i++){
-            userM[i].style.display = 'block';
+        }else{
+
+            $window.sessionStorage.setItem(key,response.data); 
+            console.log("tokennn= "+$window.sessionStorage.getItem(key));
+    
+            document.getElementById("alertAlignLeft").innerHTML = "hello "+username+"!"; 
+          
+            var userM = document.getElementsByClassName("userMode");
+            for(i=0; i<userM.length; i++){
+                userM[i].style.display = 'block';
+            }
+    
+            guestMenu.style.display = 'none';
+            console.log("before : " +  $rootScope.loginFlag );
+            $rootScope.loginFlag = 'true';
+    
+           console.log("after : " +   $rootScope.loginFlag);
+            document.getElementById("alertAlignLeft");
+            $scope.mfUser ="false";
+            $location.url('/loggedIn');
+
         }
-
-        guestMenu.style.display = 'none';
-        console.log("before : " +  $rootScope.loginFlag );
-        $rootScope.loginFlag = 'true';
-
-       console.log("after : " +   $rootScope.loginFlag);
-        document.getElementById("alertAlignLeft");
-        $scope.mfUser ="false";
-        $location.url('/loggedIn');
+       
 
 
         

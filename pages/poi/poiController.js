@@ -23,6 +23,8 @@ angular.module("myApp")
                 $scope.records = response.statusText;
         });
     }
+
+    
     myService.getPOIbyCatSport($window)
     .then(function(response){
         console.log("records="+$scope.records);
@@ -143,7 +145,7 @@ angular.module("myApp")
         countFavorites.innerHTML = counter;
     }
     $scope.searchPOI = function(){
-        console.log("here890");
+       
 
         tableFavorites.style.display = 'none';
         imagesForSearch.style.display = 'block';
@@ -271,9 +273,8 @@ angular.module("myApp")
     $scope.sortPOIbyCategories = function(){
 
         tableFavorites.style.display = 'block';
-
         imagesForSearch.style.display = 'none';
-        //innerImages.style.display ='none';
+
         imagesForRank.style.display = 'none';
         
 

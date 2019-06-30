@@ -20,8 +20,8 @@
    
 }
 .curr-img{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     
 }
 
@@ -36,8 +36,21 @@
 }
 
 #mostPopular{
+    font-size: 40px;
+    font-weight: 600;
 
-    font-size: 3em;
+}
+
+.review{
+    padding: 0;
+    /* text-align: justify; */
+    width : 150px;
+}
+
+.poiName{
+
+    font-size: 30px;
+    font-weight: 600;
 
 }
 

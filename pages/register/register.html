@@ -1,80 +1,92 @@
 <link rel="stylesheet" type="text/css" href="pages/register/registerStyle.css" />
 
 <div ng-controller="registerController as regCtrl">
-    <form name="registerForm" ng-submit="submit()" novalidate>
+    <form name="loginForm" ng-submit="submit()" novalidate>
 
-        <br/>
-        <h2>Sign Up</h2>
+            <br/>
+            <h2>Sign Up</h2>
+        <div class = "signUp">
+      
         <br/>
         <h >User Name:</h> 
-        <input type="text" id= "uname" name="uname" ng-model="uname" required ng-minlength="3" ng-maxlenth="8"> 
-        <span ng-show="registerForm.uname.$error.required" class="ng-hide">This is required! </span>
-        <span ng-show="registerForm.uname.$error.minlength">Minimum length is 3 </span>
-        <span ng-show="registerForm.uname.$error.maxlength">Maximum length is 8 </span>
-        <span ng-show="registerForm.uname.$invalid"class="ng-hide">Invalid field</span><br><br>
+        <input type="text" id= "uname" name="uname" ng-model="uname" required ng-pattern="/^[A-Za-z]+$/"  required ng-minlength="3" ng-maxlength="8"> 
+        <!-- <span ng-show="registerForm.uname.$error.required" class="ng-hide">This is required! </span> -->
+        <span ng-show="loginForm.uname.$error.minlength"><b class= "inputCheck">Minimum length is 3 </b></span>
+        <span ng-show="loginForm.uname.$error.maxlength"><b class= "inputCheck">Maximum length is 8</b> </span>
+        <span ng-show="loginForm.uname.$invalid" class="ng-hide"><b class= "inputCheck">Please enter a valid user name- letters only</b> </span><br><br>
+
+        <!-- <span ng-show="registerForm.uname.$invalid"class="ng-hide">Invalid field</span><br><br> -->
         <h>Password:</h> 
-        <input type="text" id= "password" name="password" ng-model="password" required ng-minlength="5" ng-maxlenth="10"> 
-        <span ng-show="registerForm.password.$error.required"class="ng-hide">This is required! </span>
-        <span ng-show="registerForm.password.$error.minlength">Minimum length is 5 </span>
-        <span ng-show="registerForm.password.$error.maxlength">Maximum length is 10 </span>
-        <span ng-show="registerForm.password.$invalid">Invalid field</span><br><br>
+        <input type="text" id= "password" name="password" ng-model="password" required ng-pattern="/^[0-9a-zA-Z]+$/"  required ng-minlength="5" ng-maxlength="10"> 
+        <!-- <span ng-show="registerForm.password.$error.required"class="ng-hide">This is required! </span> -->
+        <span ng-show="loginForm.password.$error.minlength"><b class= "inputCheck">Minimum length is 5 </b></span>
+        <span ng-show="loginForm.password.$error.maxlength"><b class= "inputCheck">Maximum length is 10</b> </span>
+        <span ng-show="loginForm.password.$invalid" class="ng-hide"><b class= "inputCheck">Please enter a valid password- letters and numbers only</b> </span><br><br>
+        <!-- <span ng-show="registerForm.password.$invalid">Invalid field</span><br><br> -->
         <h>First name:</h> 
-        <input type="text" id= "fname" name="fname" ng-model="fname" >
+        <input type="text" id= "fname" name="fname" ng-model="fname"required >
         <br/>
         <br/>
         <h>Last name:</h> 
-        <input type="text" id= "lname" name="lname" ng-model="lname" >
+        <input type="text" id= "lname" name="lname" ng-model="lname"required >
+        <br/>
+        <br/>
+        
+        <h>Country:</h> 
+        <select id='country' required>
+                <option ng-repeat = "c in countries" >{{c.country}}</option>
+        </select>
         <br/>
         <br/>
         <h>City:</h> 
-        <input type="text" id= "city" name="city" ng-model="city" >
-        <br/>
-        <br/>
-        <h>Country:</h> 
-        <input type="text" id= "country" name="country" ng-model="country" >
+        <input type="text" id= "city" name="city" ng-model="city" required >
         <br/>
         <br/>
         <h>Email:</h> 
-        <input type="email" id= "email" name="email" ng-model="email" ng-pattern="regexEmail" >
+        <input type="email" id= "email" name="email" ng-model="email" required ng-pattern="regexEmail"  >
+        <span ng-show="loginForm.email.$invalid" class="ng-hide"><b class= "inputCheck">Please enter a valid Email</b> </span>
         <br/>
         <br/>                  
-        <span style="color:red" ng-show="registerForm.email.$invalid" class="ng-hide">   
+        <!-- <span style="color:red" ng-show="loginForm.email.$invalid" class="ng-hide">   
         Please Enter Valid  Name.!  
-        </span>  
+        </span>   -->
         <br/>
         <h>First interest:</h> 
-        <select id='fInterest'>
+        <select id='fInterest' required>
             <option ng-repeat = "y in options" >{{y.category}}</option>
         </select>
         <br/>
         <br/>
         <h>Second interest:</h> 
-        <select id='sInterest'>
+        <select id='sInterest' required>
             <option ng-repeat = "y in options" >{{y.category}}</option>
         </select>
         <br/>
         <br/>
         <h>Verification Question 1:</h> 
-        <select id='fQuestion'>
+        <select id='fQuestion' required>
             <option ng-repeat = "z in questions" >{{z.verificationQuestion}}</option>
         </select>
         <br/>
         <br/>
         <h>Answer 1:</h> 
-        <input type="text" id= "answer1" name="answer1" ng-model="answer1" >
+        <input type="text" id= "answer1" name="answer1" ng-model="answer1"required >
         <br/>
         <br/>
         <h>Verification Question 2:</h> 
-        <select id='sQuestion'>
+        <select id='sQuestion' required>
             <option ng-repeat = "z in questions" >{{z.verificationQuestion}}</option>
         </select>
         <br/>
         <br/>
         <h>Answer 2:</h> 
-        <input type="text" id= "answer2" name="answer2" ng-model="answer2" >
+        <input type="text" id= "answer2" name="answer2" ng-model="answer2" required>
         <br/>
         <br/>
-        <input ng-disabled="registerForm.$invalid" type="submit" id="submit" value="Submit">
+       
+    </div>
+    <input  class="btn btn-primary" ng-disabled="loginForm.$invalid" type="submit" id="submit" value="Submit">
+        <!-- <input ng-disabled="registerForm.$invalid" type="submit" id="submit" value="Submit"> -->
         <!-- <button ng-click= "location.href='#login'" ng-disabled="registerForm.$invalid" type="submit" id="submit" value="Submit"></button> -->
         
     </form>

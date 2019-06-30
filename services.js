@@ -33,6 +33,14 @@ angular.module("myApp").service('myService', function($http){
         })
     }
 
+    this.registerGetCountries = function(){
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/Users/GetCountries'
+
+        })
+    }
+
     this.register = function(unameUser, passwordUser,fnameUser, lnameUser, countryUser, cityUser,
         emailUser, interest1, interest2, question1, question2, vanswer1, vanswer2){
         return $http({
@@ -157,10 +165,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetPOIListByCalculatedRank',
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        }
+            url: 'http://localhost:3000/POI/GetPOIListByCalculatedRank'
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // }
         })
 
 
@@ -171,10 +179,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetPOIListByCategories',
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        }
+            url: 'http://localhost:3000/POI/GetPOIListByCategories',
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // }
         })
 
 
@@ -186,10 +194,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetSitesByCategory/sport',
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        }
+            url: 'http://localhost:3000/POI/GetSitesByCategory/sport'
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // }
         })
 
 
@@ -199,10 +207,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetSitesByCategory/shopping',
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        }
+            url: 'http://localhost:3000/POI/GetSitesByCategory/shopping'
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // }
         })
 
     }
@@ -211,10 +219,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetSitesByCategory/restaurant',
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        }
+            url: 'http://localhost:3000/POI/GetSitesByCategory/restaurant'
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // }
         })
 
     }
@@ -225,10 +233,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetSitesByCategory/food',
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        }
+            url: 'http://localhost:3000/POI/GetSitesByCategory/food'
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // }
         })
 
     }
@@ -238,10 +246,10 @@ angular.module("myApp").service('myService', function($http){
         console.log("poi= "+interestName);
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetPOIDetails/'+interestName,
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        },
+            url: 'http://localhost:3000/POI/GetPOIDetails/'+interestName
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // },
             // params: {
             //     "interestName" : interestName
             // }
@@ -286,10 +294,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetPOIDetails/'+interestName,
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        },
+            url: 'http://localhost:3000/POI/GetPOIDetails/'+interestName
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // },
     
       
         })
@@ -300,10 +308,10 @@ angular.module("myApp").service('myService', function($http){
 
         return $http({
             method: 'GET',
-            url: 'http://localhost:3000/POI/private/GetSitesByCategory/'+catName,
-            headers: {
-                'x-auth-token': $window.sessionStorage.getItem('token')
-        },
+            url: 'http://localhost:3000/POI/GetSitesByCategory/'+catName
+        //     headers: {
+        //         'x-auth-token': $window.sessionStorage.getItem('token')
+        // },
     
       
         })

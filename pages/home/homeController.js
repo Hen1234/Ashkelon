@@ -51,6 +51,30 @@ angular.module("myApp")
         
             }
 
+            $scope.forFeed = function(x){
+
+                $scope.interestNameForFeed = x.IntrestName;
+                rank.value = "";
+                reviewFromUser.value = "";
+        
+        
+        
+            }
+        
+            $scope.createFeedback = function(interestNameForFeed){
+        
+                var rankNum = rank.value;
+                var description = reviewFromUser.value;
+                // console.log("scope.= "+$scope.x.IntrestName);
+                myService.createFeed(interestNameForFeed, rankNum,description, $window).
+                then(function(response){
+        
+        
+                }, function(response) {
+                        $scope.records = response.statusText;
+                });
+            }
+
 
     
 
