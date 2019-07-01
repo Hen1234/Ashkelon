@@ -11,17 +11,26 @@ angular.module("myApp")
 
     myService.twoLastFavorites($window).then(function(response){
         
+        //the user has no favorites
         if(response.data[0]['pointOfIntrest']==null){
 
-            $scope.singlePOI1 = "There are no favorites";
+            // $scope.singlePOI1 = "There are no favorites";
+            // twoLast1.style.display = 'none';
+            // twoLast2.style.display = 'none';
+            rightCol.style.display = 'none';
+
+
+
         }
         else{
 
             console.log("1= "+response.data[0]['pointOfIntrest']);
-            console.log("2= "+response.data[1]['pointOfIntrest']);
+            // console.log("2= "+response.data[1]['pointOfIntrest']);
             myService.searchPOI(response.data[0]['pointOfIntrest'], $window).
             then(function(response){
 
+                console.log("responseJson= "+JSON.stringify(response.data, null, 4));
+                console.log("respone123= "+ response.data[0]['pointOfIntrests.IntrestName']);
                 $scope.singlePOI1 = response.data[0]['IntrestName'];
                 console.log("singlePOI1= "+ $scope.singlePOI1);
                 $scope.IntrestPicture1 = response.data[0]['IntrestPicture'];
@@ -31,21 +40,29 @@ angular.module("myApp")
                 $scope.singlePOI1 = response.statusText;
             });    
 
-            if(!(response.data[1]['pointOfIntrest']== null)){
+            if(!(response.data[1]== null)){
 
+                console.log("hereeeeeeeeeeee");
                 myService.searchPOI(response.data[1]['pointOfIntrest'], $window).
                 then(function(response){
     
-                    $scope.singlePOI2 = response.data[0]['IntrestName'];
-                    $scope.IntrestPicture2 = response.data[0]['IntrestPicture'];
+                    $scope.singlePOI2 = response.data[1]['IntrestName'];
+                    $scope.IntrestPicture2 = response.data[1]['IntrestPicture'];
     
                 }, function(response) {
            
                     $scope.singlePOI2 = response.statusText;                
                 });
                    
-                
+            //the user has one favorite 
+            }else{
+
+           
+                     twoLast2.style.display = 'none';
+
             }
+
+
         
 
         }
@@ -131,6 +148,7 @@ angular.module("myApp")
     $scope.forFeed = function(x){
 
         $scope.interestNameForFeed = x.IntrestName;
+        console.log("forFeed= "+JSON.stringify(x.IntrestName, null, 4) );
 
     }
 

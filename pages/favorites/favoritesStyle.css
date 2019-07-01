@@ -23,7 +23,7 @@
 #list-group-item {
     padding: 10px 15px;
     height: 40px; 
-    width: 200px;
+    width: 150px;
 }
 
 .review{
@@ -42,6 +42,13 @@
 }
 
 .poiName{
+
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+.message{
 
     font-size: 30px;
     font-weight: 600;

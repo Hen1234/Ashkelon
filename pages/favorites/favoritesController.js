@@ -4,6 +4,13 @@ angular.module("myApp")
 // $scope.Xname = "hh";
 // $scope.Xdesc = "hh";
 
+
+
+$scope.numberArray = [1,2,3,4];
+// var orderArray = [];
+var orderArray = [];
+var numOfFav = 0;
+
 myService.getFavorites($window).then(function(response){
         
         
@@ -132,7 +139,10 @@ myService.getFavorites($window).then(function(response){
                     $scope.message = 'There are no favorites';
         
                 }
-        
+                var counter = countFavorites.innerHTML;
+                counter = parseInt(counter);
+                counter--;
+                countFavorites.innerHTML = counter;
                 $location.url('/favorites');
 
                 }, function(response) {
@@ -172,6 +182,59 @@ myService.getFavorites($window).then(function(response){
         });
     }
 
+    $scope.rankFav = function(nameOfPoint){
+        orderArray.push(nameOfPoint);
+        console.log(orderArray);
+        document.getElementById(nameOfPoint).style.visibility = "hidden";
+
+
+    }
+
+    $scope.insertToArray = function(IntrestName){
+
+        // orderArray
+        console.log("value= "+IntrestName);
+        var val = document.getElementById("p.IntrestName");
+        console.log("value2= "+val);
+        // orderArray.splice(p.IntrestName.value, 0, IntrestName);
+        // console.log("array= "+ orderArray);
+
+    }
+
+    // $scope.insertToArray = function(select1){
+
+
+    //     console.log("value= "+select1.value+" ,id= "+select1.id);
+    //     orderArray.splice(select1.value, 0, select1.id);
+    //     console.log("array= "+ orderArray);
+    // }
+
+    $scope.getNumOfFav = function(){
+
+        myService.getNumOfFavorites($window).
+        then(function(response){
+
+            numOfFav = response.data[0][""];
+            // console.log("num= "+JSON.stringify(numOfFav, null, 4));
+            console.log(numOfFav);
+
+
+        }, function(response) {
+                // $scope.records = response.statusText;
+        });
+
+
+    }
+
+    $scope.saveUserOrder = function(){
+
+        myService.insertUserOrder($window,orderArray).
+        then(function(response){
+
+
+
+        })
+    }
 
 
 

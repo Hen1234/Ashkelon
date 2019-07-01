@@ -17,5 +17,11 @@ angular.module("myApp")
     guestMenu.style.display = 'block';
     $rootScope.loginFlag = false;
     console.log("logoutFlag "+$rootScope.loginFlag);
+    countFavorites.innerHTML=0;
+
+    //delete token
+    $window.sessionStorage.removeItem('token');
+    console.log("tokennn= "+ $window.sessionStorage.getItem('token')); 
+  
 
 })

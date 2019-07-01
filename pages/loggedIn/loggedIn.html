@@ -3,12 +3,12 @@
     <tr id ="singleRow">
         <td id = "leftCol" > 
             <div class = "leftColDiv" align ="center">
-            <h4>Recommended Points of Interest For You:</h4>
+            <h4 class="titles">Recommended Points of Interest For You:</h4>
             <div id="images1"  >
                     <div class = "single-img1" ng-repeat="x in records">
                         <h3 class="poiName" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)">{{x.IntrestName}}</h3>
                         <img class = "curr-img1 img-thumbnail" ng-src="{{ x.IntrestPicture}}" data-toggle="modal" data-target="#exampleModal" ng-click ="changeData(x)"> <br/>
-                        <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(x)">Give Feedback</button>
+                        <!-- <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(x)">Give Feedback</button> -->
                         
                     </div>
                 </div>
@@ -18,17 +18,17 @@
         <td id = "rightCol">
             <!-- <b>Last Favorites:</b> -->
             <div id="images2" >
-                <h4>Two Last Favorites Points of Interest:</h4>
+                <h4 class="titles">Two Last Favorites Points of Interest:</h4>
                     <div id="images21" align= "center">
                             <div class = "single-img" >
                                      <h3 class="poiName" data-toggle="modal" data-target="#exampleModal" ng-click ="changeDataForSinglePOI(singlePOI1)">{{singlePOI1}}</h3>
-                                    <img class = "curr-img1 img-thumbnail" ng-src="{{IntrestPicture1}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI1)><br/>
-                                    <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(singlePOI1)">Give Feedback</button>
+                                    <img id="twoLast1" class = "curr-img1 img-thumbnail" ng-src="{{IntrestPicture1}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI1)><br/>
+                                    <!-- <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(singlePOI1)">Give Feedback</button> -->
                                   </div>
                             <div class = "single-img" >
                                     <h3 class="poiName" data-toggle="modal" data-target="#exampleModal" ng-click ="changeDataForSinglePOI(singlePOI2)">{{singlePOI2}}</h3>
-                                  <img class = "curr-img1 img-thumbnail" ng-src="{{IntrestPicture2}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI2)><br/>
-                                  <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(singlePOI2)">Give Feedback</button>
+                                  <img id="twoLast2" class = "curr-img1 img-thumbnail" ng-src="{{IntrestPicture2}}"  data-toggle="modal" data-target="#exampleModal" ng-click= changeDataForSinglePOI(singlePOI2)><br/>
+                                  <!-- <button class = "btn btn-primary review"  data-toggle="modal" data-target="#orangeModalSubscriptionForFeedback" ng-click= "forFeed(singlePOI2)">Give Feedback</button> -->
                                   
                           </div>         
                       </div>

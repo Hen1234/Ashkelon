@@ -52,12 +52,27 @@
     
             guestMenu.style.display = 'none';
             console.log("before : " +  $rootScope.loginFlag );
-            $rootScope.loginFlag = 'true';
+            $rootScope.loginFlag = true;
     
            console.log("after : " +   $rootScope.loginFlag);
             document.getElementById("alertAlignLeft");
             $scope.mfUser ="false";
             $location.url('/loggedIn');
+           
+
+            myService.getNumOfFavorites($window).
+            then(function(response){
+        
+                countFavorites.innerHTML = response.data[0][""];
+               
+        
+        
+            }, function(response) {
+                // $scope.records = response.statusText;
+            });
+        
+        
+            
 
         }
        

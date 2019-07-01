@@ -4,14 +4,16 @@
 
 
 <h2 id= "titleFavorites" align= "center" >Favorites</h2>
-
+<br/>
+<div class= "message" align="center">{{message}}</div> 
           <div class="row" id = "buttonsTable">
               <div class="col-4">
                 <div class="list-group" id="list-tab" role="tablist">
                   <p id= "list-group-item" class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" >Favorites</p>
                   <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" ng-click="sortByCat()">Sort by Category</button>
                   <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages" ng-click= "sortByRank()">Sort by Rank</button>
-                  <button id= "list-group-item" class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"data-toggle="modal" data-target="#exampleModal" >Inser Your Order</button>
+                  <button id= "list-group-item" class="list-group-item list-group-item-action"data-toggle="modal" data-target="#orangeModalSubscriptionForOrder" >Inser Your Order</button>
+                  <!-- <button id="list-group-item" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#orangeModalSubscription">Search Point</button> -->
                 </div>
               </div>
               <div class="col-8">
@@ -47,7 +49,7 @@
 
 
 
-    {{message}}
+    
 <!-- <div id= "sortByCategory">
 
         <button type= "button" id="sort" ng-click= "sortByCat()" >Sort by Category</button>
@@ -185,3 +187,59 @@
           <!--/.Content-->
         </div>
       </div>
+
+       <!-- modal for insert order -->
+       <div class="modal fade" id="orangeModalSubscriptionForOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+       aria-hidden="true">
+       <div class="modal-dialog modal-notify modal-warning" role="document">
+         <!--Content-->
+         <div class="modal-content">
+           <!--Header-->
+           <div class="modal-header text-center">
+             <h4 class="modal-title white-text w-100 font-weight-bold py-2">Your Favorites Order</h4>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true" class="white-text">&times;</span>
+             </button>
+           </div>
+     
+           <!--Body-->
+           <div class="modal-body">
+             <h3 class="poiName">Choose your order of favorite places in Ashkelon </h3>
+              <div class = "single-img" ng-repeat="p in records">
+                  <button class ="btn btn-info" id ="{{p.IntrestName}}" ng-click = "rankFav(p.IntrestName)"> {{p.IntrestName}} </button></br>
+                  <!-- <input id= "p.IntrestName" ></input>
+                  <button class= "saveO" ng-click= "getNumOfFav()">save</button> -->
+                  
+                  
+                  
+                  
+                  
+                  
+                  <!-- <input id= "p.IntrestName" ></input> -->
+                  <!-- <div class="stam" > -->
+                  <!-- <select id="p.IntrestName" > -->
+                    <!-- <input id= "p.IntrestName"  type="text" ></input> -->
+                    <!-- <option ng-repeat= "i in numberArray" value= "{{i}}" >{{i}}</option> -->
+                    <!-- <button class= "saveO" ng-click= "insertToArray(p.IntrestName)">save</button> -->
+                   
+
+
+              <!-- </select> -->
+     
+                  </div>
+              </div>
+
+             <br/>
+              <!--Footer-->
+              <div class="modal-footer justify-content-center">
+              <!-- <a type="button" class="btn btn-outline-warning waves-effect" ng-click= "createFeedback(interestNameForFeed)">Send <i class="fas fa-paper-plane-o ml-1"></i></a> -->
+              <button  class=" btn btn-primary" data-dismiss="modal" aria-label="Close" ng-click= "saveUserOrder()">Save My Order</button>
+              </div>
+          
+           </div>
+     
+          
+         </div>
+         <!--/.Content-->
+       </div>
+     </div>

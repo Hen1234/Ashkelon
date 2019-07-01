@@ -345,4 +345,35 @@ angular.module("myApp").service('myService', function($http){
 
         })
     }
+
+    this.getNumOfFavorites = function( $window){
+
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:3000/favorites/private/GetNumOfFavorites',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },
+    
+      
+        })
+
+    }
+
+    this.insertUserOrder = function($window,orderArray){
+
+        return $http({
+            method: 'POST',
+            url: 'http://localhost:3000/favorites/private/getUserOrder',
+            headers: {
+                'x-auth-token': $window.sessionStorage.getItem('token')
+        },  data: {
+            "order": orderArray
+            
+        } 
+    
+      
+        })
+
+    }
 })
