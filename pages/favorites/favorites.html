@@ -204,9 +204,15 @@
      
            <!--Body-->
            <div class="modal-body">
-             <h3 class="poiName">Choose your order of favorite places in Ashkelon </h3>
-              <div class = "single-img" ng-repeat="p in records">
-                  <button class ="btn btn-info" id ="{{p.IntrestName}}" ng-click = "rankFav(p.IntrestName)"> {{p.IntrestName}} </button></br>
+             <h3 class="poiName">Choose your order of favorites POI </h3>
+             <div class="btn-group-vertical">
+                <button class ="btn btn-info buttonFav" ng-repeat="p in records" id ="{{p.IntrestName}}" ng-click = "rankFav(p.IntrestName)"> {{p.IntrestName}} </button></br>
+              </div>
+              <div id = "orderListModal">
+              <ol>
+                  <li class = "favList" ng-repeat="fav in userFav" start ="1">{{fav}}</li>
+              </ol>
+              </div>
                   <!-- <input id= "p.IntrestName" ></input>
                   <button class= "saveO" ng-click= "getNumOfFav()">save</button> -->
                   
@@ -225,16 +231,16 @@
 
 
               <!-- </select> -->
-     
-                  </div>
+
               </div>
 
              <br/>
               <!--Footer-->
               <div class="modal-footer justify-content-center">
               <!-- <a type="button" class="btn btn-outline-warning waves-effect" ng-click= "createFeedback(interestNameForFeed)">Send <i class="fas fa-paper-plane-o ml-1"></i></a> -->
+              <button  class=" btn btn-primary"  ng-click= "resetUserOrder()">Reset</button> 
               <button  class=" btn btn-primary" data-dismiss="modal" aria-label="Close" ng-click= "saveUserOrder()">Save My Order</button>
-              </div>
+            </div>
           
            </div>
      

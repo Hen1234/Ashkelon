@@ -5,11 +5,21 @@ angular.module("myApp")
 // $scope.Xdesc = "hh";
 
 
-
+//array fot the ordered list
+$scope.userFav = [];
 $scope.numberArray = [1,2,3,4];
 // var orderArray = [];
 var orderArray = [];
 var numOfFav = 0;
+
+
+$scope.resetUserOrder = function(){
+    $scope.userFav = [];
+    var buttonsFav = document.getElementsByClassName("buttonFav");
+    for(i = 0 ;i < buttonsFav.length; i++)
+        buttonsFav[i].style.visibility = "visible";
+
+}
 
 myService.getFavorites($window).then(function(response){
         
@@ -182,9 +192,10 @@ myService.getFavorites($window).then(function(response){
         });
     }
 
+
     $scope.rankFav = function(nameOfPoint){
         orderArray.push(nameOfPoint);
-        console.log(orderArray);
+        $scope.userFav.push(nameOfPoint);
         document.getElementById(nameOfPoint).style.visibility = "hidden";
 
 
