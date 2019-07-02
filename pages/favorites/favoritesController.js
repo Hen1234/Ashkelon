@@ -171,8 +171,8 @@ myService.getFavorites($window).then(function(response){
     $scope.forFeed = function(x){
 
         $scope.interestNameForFeed = x.IntrestName;
-        rank.value = "";
-        reviewFromUser.value = "";
+        rankFeed.value = "";
+        reviewFromUserF.value = "";
 
 
 
@@ -180,8 +180,8 @@ myService.getFavorites($window).then(function(response){
 
     $scope.createFeedback = function(interestNameForFeed){
 
-        var rankNum = rank.value;
-        var description = reviewFromUser.value;
+        var rankNum = rankFeed.value;
+        var description = reviewFromUserF.value;
         // console.log("scope.= "+$scope.x.IntrestName);
         myService.createFeed(interestNameForFeed, rankNum,description, $window).
         then(function(response){

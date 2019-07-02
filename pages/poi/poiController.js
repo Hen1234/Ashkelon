@@ -120,12 +120,14 @@ angular.module("myApp")
     $scope.forFeed = function(x){
 
         $scope.interestNameForFeed = x.IntrestName;
+        rankForFeed.value = "";
+        reviewFromUser.value= "";
 
     }
 
     $scope.createFeedback = function(interestNameForFeed){
 
-        var rankNum = rank.value;
+        var rankNum = rankForFeed.value;
         var description = reviewFromUser.value;
         // console.log("scope.= "+$scope.x.IntrestName);
         myService.createFeed(interestNameForFeed, rankNum,description, $window).

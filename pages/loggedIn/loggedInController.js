@@ -34,6 +34,7 @@ angular.module("myApp")
                 $scope.singlePOI1 = response.data[0]['IntrestName'];
                 console.log("singlePOI1= "+ $scope.singlePOI1);
                 $scope.IntrestPicture1 = response.data[0]['IntrestPicture'];
+                
 
             }, function(response) {
        
@@ -46,8 +47,9 @@ angular.module("myApp")
                 myService.searchPOI(response.data[1]['pointOfIntrest'], $window).
                 then(function(response){
     
-                    $scope.singlePOI2 = response.data[1]['IntrestName'];
-                    $scope.IntrestPicture2 = response.data[1]['IntrestPicture'];
+                    console.log("singlePOI2= "+JSON.stringify(response.data, null, 4));
+                    $scope.singlePOI2 = response.data[0]['IntrestName'];
+                    $scope.IntrestPicture2 = response.data[0]['IntrestPicture'];
     
                 }, function(response) {
            
